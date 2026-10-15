@@ -1,0 +1,26 @@
+{
+	"name": "nalgene",
+	"displayName": "nalgene",
+	"version": "0.1.0",
+	"description": "Minimal, stack-agnostic agent workflow: route nontrivial work through an openspec-gated loop, steer it mid-task with a few no-fluff principles.",
+	"author": {
+		"name": "CSutanto"
+	},
+	"homepage": "https://github.com/sutanto62/skills/tree/main/nalgene",
+	"repository": "https://github.com/sutanto62/skills",
+	"license": "MIT",
+	"keywords": [
+		"nalgene",
+		"nalgene-mode",
+		"openspec",
+		"workflow",
+		"principles"
+	],
+	"category": "developer-tools",
+	"tags": [
+		"workflow",
+		"principles",
+		"openspec"
+	],
+	"skills": "./skills/"
+}
