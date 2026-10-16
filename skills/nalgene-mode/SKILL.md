@@ -17,6 +17,7 @@ Give a goal in plain words and how you'll know it's done. This skill picks a pla
 
 ## Non-negotiables
 
+- Nontrivial change, architecture decision, or an "are we sure how this works" question before you touch code → the **how** skill.
 - Any change that touches behavior, a public interface, or more than one module goes through **openspec-gate** before code starts. Trivial fixes (typo, one-line guard, dependency bump, local rename) skip it — state why when skipping.
 - Root-cause every bug, don't patch the symptom. See **principle-fix-root-causes**.
 - Prove it works by running it. See **principle-prove-it-works**.

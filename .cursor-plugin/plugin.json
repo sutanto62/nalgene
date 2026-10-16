@@ -22,5 +22,6 @@
 		"principles",
 		"openspec"
 	],
-	"skills": "./skills/"
+	"skills": "./skills/",
+	"agents": "./agents/"
 }

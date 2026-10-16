@@ -11,6 +11,8 @@ Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a
 | Need | Use |
 |---|---|
 | Nontrivial task, want it routed and gated | `/nalgene-mode` |
+| "How does X work", before changing something | `/how` |
+| Check what openspec already says, read-only | `/openspec-explore` |
 | Just need a change proposed, validated, or archived | `/openspec-gate` |
 | Steer mid-task toward root-causing, not patching | `/principle-fix-root-causes` |
 | Steer toward proving a claim instead of asserting it | `/principle-prove-it-works` |
