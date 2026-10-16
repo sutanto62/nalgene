@@ -14,9 +14,16 @@ A minimal, stack-agnostic agent workflow plugin for Cursor and Claude Code. Insp
 
 ## Install
 
-**Claude Code:** add this directory as a plugin source (see Claude Code's plugin docs for the exact marketplace/local-path mechanism your version uses).
+**Claude Code:** this repo is its own marketplace (`.claude-plugin/marketplace.json`, one entry pointing at the repo root). In Claude Code:
 
-**Cursor:** `/add-plugin` pointing at this directory, or via Customize in the sidebar. Uses `.cursor-plugin/plugin.json`.
+```text
+/plugin marketplace add sutanto62/nalgene
+/plugin install nalgene@nalgene
+```
+
+(or run the equivalent `claude plugin marketplace add` / `claude plugin install` from the shell).
+
+**Cursor:** `/add-plugin` pointing at this repo, or via Customize in the sidebar. Uses `.cursor-plugin/plugin.json`.
 
 ## Use
 

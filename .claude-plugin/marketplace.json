@@ -1,0 +1,14 @@
+{
+  "name": "nalgene",
+  "owner": {
+    "name": "CSutanto"
+  },
+  "description": "Minimal, stack-agnostic agent workflow: openspec-gated router, layered how/explore, no-fluff principles.",
+  "plugins": [
+    {
+      "name": "nalgene",
+      "source": ".",
+      "description": "Minimal, stack-agnostic agent workflow plugin for Cursor and Claude Code."
+    }
+  ]
+}
