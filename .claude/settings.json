@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath // empty' | { read -r f; case \"$f\" in *skills/*|*agents/*) jq -n --arg f \"$f\" '{hookSpecificOutput:{hookEventName:\"PostToolUse\",additionalContext:(\"A skill or subagent definition changed: \" + $f + \". Review docs/guide/ and docs/harness/ in this repo and update whichever page describes it - docs/guide/README.md indexes the guide pages; docs/harness/claude-code.md and docs/harness/cursor.md cover platform-specific subagent/tool mapping.\")}}' ;; esac; } 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

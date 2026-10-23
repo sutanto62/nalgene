@@ -36,6 +36,10 @@ State the goal and a way to check it — don't hand-pick skills yourself. `nalge
 
 Mid-task, steer it by naming a principle directly: "apply prove-it-works, show me the real output."
 
+## Guide
+
+[`docs/guide/`](./docs/guide/README.md) walks through setup, routing, investigation, steering, and the gate with realistic prompts. [`docs/harness/`](./docs/harness/) covers the Claude Code vs. Cursor differences relevant to authoring or editing a skill.
+
 ## Status
 
 v1: router + openspec gate + 4 principles + `how` + `why`, deliberately stack-agnostic except for `how`'s Odoo track (the first framework-specific explorer/explainer pair — others follow the same pattern: `references/explorer-prompt-<name>.md` + `references/explainer-prompt-<name>.md`, plus a routing line in `how`'s SKILL.md). `why` has no Odoo track yet — add a `references/sources/code-archaeology-odoo.md` if a real question ever needs layer-aware git history. `nalgene-mode`'s Odoo support is a single reference (`skills/nalgene-mode/references/odoo-feature.md`, condensed from Odoo's own Server Framework 101 tutorial) that the three playbooks point into, not a fourth playbook — framework knowledge, not a different workflow shape. Platform-specific *action* skills (Android, iOS, web/Svelte, backend) beyond exploration are intentionally not in here yet — add them once a real, repeated need shows up.
