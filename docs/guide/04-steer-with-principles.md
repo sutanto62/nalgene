@@ -14,7 +14,7 @@ Five one-rule skills you invoke by name mid-task, in plain language, to redirect
 apply prove-it-works before you report this as fixed
 ```
 
-`nalgene-mode` already applies the first four on your behalf as non-negotiables per playbook step, and the Odoo feature build order (page 2) already opens with `odoo-reuse-extend`. Naming one explicitly is for steering mid-task when you see the agent drifting — patching a symptom, claiming success without running anything, padding a diff, stalling a migration halfway, reaching for a new model before checking what already exists — not a prerequisite to invoking the others.
+`nalgene-mode`'s own `SKILL.md` has a **Principles** section grouping the first four under **Core** and **Verification**, and `odoo-reuse-extend` under **Framework** — it reads the matching leaf in full and applies it per playbook step without you asking, and the Odoo feature build order (page 2) already opens with `odoo-reuse-extend`. Naming one explicitly is for steering mid-task when you see the agent drifting — patching a symptom, claiming success without running anything, padding a diff, stalling a migration halfway, reaching for a new model before checking what already exists — not a prerequisite to invoking the others.
 
 ## Adding a new principle
 
@@ -22,8 +22,8 @@ A principle is one file, `skills/principle-<kebab-title>/SKILL.md`: `name`, a `d
 
 Where it gets wired in depends on its scope:
 
-- **General** (applies on every project, any stack) → add it as a non-negotiable in `nalgene-mode`'s own steps or the relevant `playbooks/*.md`, the way `fix-root-causes` is referenced from `bug-fix.md`.
-- **Framework-specific** (like `odoo-reuse-extend`) → don't add it to `nalgene-mode`'s general non-negotiables. Wire it into that framework's own reference doc and the playbook step that already branches on the framework — `odoo-reuse-extend` sits at the top of `odoo-feature.md`'s build order, referenced from `feature.md`'s Odoo line.
+- **General** (applies on every project, any stack) → add it under **Core** or **Verification** in `nalgene-mode`'s own Principles section, and reference it from the relevant `playbooks/*.md`, the way `fix-root-causes` is referenced from `bug-fix.md`.
+- **Framework-specific** (like `odoo-reuse-extend`) → it still gets a one-line entry under **Framework** in `nalgene-mode`'s Principles section (so the trigger is discoverable), but the real wiring is into that framework's own reference doc and the playbook step that already branches on the framework — `odoo-reuse-extend` sits at the top of `odoo-feature.md`'s build order, referenced from `feature.md`'s Odoo line.
 
 Either way, finish the same checklist:
 
