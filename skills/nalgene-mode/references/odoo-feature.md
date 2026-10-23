@@ -14,10 +14,4 @@ Build order for a new Odoo module or capability, condensed from [Server Framewor
 10. **Cross-module integration** — `depends` on whatever you inherit or call into; load order follows the dependency graph.
 11. **QWeb** — only if templating a report or portal page; otherwise skip.
 
-## Using this
-
-- **feature.md**: Odoo project → walk this top to bottom at step 2, skipping steps the feature doesn't need.
-- **bug-fix.md**: the bug lives in one step above (a constraint misfiring, an onchange not recomputing) → go straight to that step instead of rebuilding the whole order.
-- **refactor.md**: only steps 5 (relations) and 9 (inheritance) are usually in scope for restructuring; the rest shouldn't move.
-
 "Odoo project" means the question names Odoo, or the touched paths look like an Odoo module (`__manifest__.py`, `models/`, `views/*.xml`, `security/ir.model.access.csv`) — same detection `how` uses.
