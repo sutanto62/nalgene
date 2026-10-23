@@ -19,5 +19,6 @@ Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a
 | Steer toward proving a claim instead of asserting it | `/principle-prove-it-works` |
 | Steer toward a smaller, more readable diff | `/principle-minimize-reader-load` |
 | Steer a multi-step migration toward its end state, not a permanent halfway house | `/principle-outcome-oriented-execution` |
+| Odoo feature: check Community/Enterprise for something to reuse or extend, and keep custom modules from depending on each other | `/principle-odoo-reuse-extend` |
 
 If the ask is actually a task ("fix this", "add X"), don't answer from this table — hand it to `/nalgene-mode` instead.

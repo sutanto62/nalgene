@@ -26,6 +26,6 @@ None fit → `nalgene-mode` says so and proposes the closest one rather than gue
 
 ## Odoo projects
 
-Feature and refactor work on an Odoo project follows `skills/nalgene-mode/references/odoo-feature.md`'s build order (scaffold → models → security → views → relations → ...) instead of improvising one. Bug fixes use the same reference to guess which build step the bug likely sits in, so the fix starts in the right place instead of a fresh search.
+Feature and refactor work on an Odoo project follows `skills/nalgene-mode/references/odoo-feature.md`'s build order (reuse check → scaffold → models → security → views → relations → ...) instead of improvising one. The build order opens with **principle-odoo-reuse-extend**: before anything is scaffolded, an explorer checks whether Community or Enterprise already covers the feature, in full or in part, so a new model or view only gets written once that search comes back empty. Bug fixes use the same reference to guess which build step the bug likely sits in, so the fix starts in the right place instead of a fresh search.
 
 Next: [Investigate before you touch code](./03-investigate.md).
