@@ -1,0 +1,24 @@
+# 3. Investigate before you touch code
+
+Two skills, two different questions:
+
+- **`/how`** — "how does X work", before changing something, or "where should this live". Explains architecture and runtime flow at onboarding depth.
+- **`/why`** — "why does X work this way", design rationale, regressions, historical motivation. Takes "what it does" as given — run `how` first if you don't already know.
+
+```text
+/how how does the invite-expiry job decide which rows to touch?
+```
+
+```text
+/why why does the invite expiry job batch in groups of 50 instead of doing them all at once?
+```
+
+Both check **openspec-explore** first — what's already documented beats re-deriving it from code. Both spawn read-only `nalgene-explorer` subagents (never a writing-capable agent), so an investigation can't accidentally become an edit.
+
+`why` has a fixed two-source roster: source control (`git`, `gh`) and openspec documents. It never skips source control; it only skips openspec with a written reason ("no `openspec/` directory", or a provable "predates openspec"). Its answer separates **What We Found** from **What We Can Reasonably Infer** — don't read "appears to" and "because" as the same claim; the synthesizer chose the word deliberately.
+
+## Odoo projects
+
+`how` has an Odoo track: explorers walk Community → Enterprise → Custom in that order, since a later layer can override an earlier one and getting the order wrong gives a wrong answer. `why` doesn't have one yet — its general track covers Odoo questions until a real question needs layer-aware history.
+
+Next: [Steer with principle names](./04-steer-with-principles.md).
