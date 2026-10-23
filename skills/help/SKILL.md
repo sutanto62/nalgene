@@ -1,10 +1,10 @@
 ---
-name: nalgene-help
-description: "Answers 'which skill for X' without doing the work. Type /nalgene-help with a question about this plugin."
+name: help
+description: "Answers 'which skill for X' without doing the work. Type /help with a question about this plugin."
 disable-model-invocation: true
 ---
 
-# Nalgene help
+# Help
 
 Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a run spends real tokens.
 

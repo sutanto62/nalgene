@@ -9,7 +9,7 @@ A minimal, stack-agnostic agent workflow plugin for Cursor and Claude Code. Insp
 - **`why`** — "why does X work this way" / design rationale, regressions, and historical motivation. Fixed two-source roster (git + `gh`, and openspec documents), fans out read-only `nalgene-explorer` investigators per source, then a synthesizer produces a confidence-tiered, cited answer. Defers to `how` for "what the code does" instead of re-deriving it. Adapted from [pstack's `why`](https://github.com/cursor/plugins/tree/main/pstack/skills/why), scoped down to this plugin's two sources (no MCP discovery) and no Odoo track yet.
 - **`openspec-gate`** — drives `openspec`'s propose → validate → implement → archive loop. Called by `nalgene-mode` for any change that touches behavior, an API, or more than one module; invoke directly for anything else.
 - **`openspec-explore`** — read-only: what does openspec already document about this? Used by `how`, or standalone.
-- **`nalgene-help`** — answers "which skill for X" without spending tokens doing work. Type `/nalgene-help <question>`.
+- **`help`** — answers "which skill for X" without spending tokens doing work. Type `/help <question>`.
 - **`principle-*`** — one-rule skills you invoke by name mid-task to redirect the agent: `fix-root-causes`, `prove-it-works`, `minimize-reader-load`, `outcome-oriented-execution`.
 - **`agents/nalgene-explorer`** — the plugin's own read-only, general-purpose subagent, shared by `how` and `why`. Bundled rather than relying on a host's built-in equivalent, so both skills work the same in Cursor and Claude Code.
 

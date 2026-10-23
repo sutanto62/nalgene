@@ -32,4 +32,4 @@ Give a goal in plain words and how you'll know it's done. This skill picks a pla
 4. Follow the playbook. Name the principle that shaped any non-obvious choice.
 5. Report: what changed, how it was verified, what's still open.
 
-A question about which skill fits a situation, not a task to do, goes to **nalgene-help** instead.
+A question about which skill fits a situation, not a task to do, goes to **help** instead.
