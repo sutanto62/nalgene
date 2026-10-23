@@ -16,4 +16,23 @@ apply prove-it-works before you report this as fixed
 
 `nalgene-mode` already applies the first four on your behalf as non-negotiables per playbook step, and the Odoo feature build order (page 2) already opens with `odoo-reuse-extend`. Naming one explicitly is for steering mid-task when you see the agent drifting — patching a symptom, claiming success without running anything, padding a diff, stalling a migration halfway, reaching for a new model before checking what already exists — not a prerequisite to invoking the others.
 
+## Adding a new principle
+
+A principle is one file, `skills/principle-<kebab-title>/SKILL.md`: `name`, a `description` that starts with "Apply when ...", `disable-model-invocation: true`, then a short body with a **Why** (the cost of skipping it) and a **Pattern** (the concrete steps). Keep it to one page — the four generic principles and `odoo-reuse-extend` are the template to copy.
+
+Where it gets wired in depends on its scope:
+
+- **General** (applies on every project, any stack) → add it as a non-negotiable in `nalgene-mode`'s own steps or the relevant `playbooks/*.md`, the way `fix-root-causes` is referenced from `bug-fix.md`.
+- **Framework-specific** (like `odoo-reuse-extend`) → don't add it to `nalgene-mode`'s general non-negotiables. Wire it into that framework's own reference doc and the playbook step that already branches on the framework — `odoo-reuse-extend` sits at the top of `odoo-feature.md`'s build order, referenced from `feature.md`'s Odoo line.
+
+Either way, finish the same checklist:
+
+1. Reference it from the playbook step(s) or framework reference where it applies.
+2. Add a row to `nalgene-help`'s lookup table.
+3. Add a row to the table above, noting if it's framework-specific.
+4. If it's framework-specific, update that framework's section on [page 2](./02-nalgene-mode.md#odoo-projects) (or wherever that playbook's framework notes live).
+5. Add a pitfall to [page 6](./06-recipes-and-pitfalls.md) for the failure mode the principle exists to prevent.
+
+This is the exact sequence `odoo-reuse-extend` went through — `git log` for that principle's commit is a worked example of all five steps.
+
 Next: [Gate non-trivial changes](./05-openspec-gate.md).

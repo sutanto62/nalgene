@@ -7,7 +7,7 @@ Here's what you'll learn:
 1. [Set up nalgene](./01-setup.md). Install the plugin in Claude Code or Cursor.
 2. [Route work through `/nalgene-mode`](./02-nalgene-mode.md). Give it a goal and watch it pick a playbook.
 3. [Investigate before you touch code](./03-investigate.md). `/how`, `/why`, and `/openspec-explore`.
-4. [Steer with principle names](./04-steer-with-principles.md). The five names that redirect an agent mid-task.
+4. [Steer with principle names](./04-steer-with-principles.md). The five names that redirect an agent mid-task, and how to add a new one.
 5. [Gate non-trivial changes](./05-openspec-gate.md). The propose → validate → implement → archive loop, standalone or via the router.
 6. [Recipes and pitfalls](./06-recipes-and-pitfalls.md). Prompts to copy and mistakes to skip.
 
