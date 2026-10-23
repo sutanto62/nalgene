@@ -19,17 +19,32 @@ Give a goal in plain words and how you'll know it's done. This skill picks a pla
 
 - Nontrivial change, architecture decision, or an "are we sure how this works" question before you touch code → the **how** skill.
 - Any change that touches behavior, a public interface, or more than one module goes through **openspec-gate** before code starts. Trivial fixes (typo, one-line guard, dependency bump, local rename) skip it — state why when skipping.
-- Root-cause every bug, don't patch the symptom. See **principle-fix-root-causes**.
-- Prove it works by running it. See **principle-prove-it-works**.
-- Keep the diff the reader can hold in their head. See **principle-minimize-reader-load**.
-- State the target shape of a multi-step change up front and converge on it. See **principle-outcome-oriented-execution**.
+- The Principles section below grounds every non-obvious call. Name each principle that shaped a decision and the specific choice it changed. Cite only principles whose leaf `SKILL.md` you read this run.
+
+## Principles
+
+Read the leaf skill in full for any principle you apply. Each entry names when it applies. Each leaf is the `principle-<title>` skill, with the title in kebab case, hyphens kept and other punctuation dropped, unless the entry gives its name.
+
+**Core**
+
+- **Minimize Reader Load.** Writing or reviewing a diff. Favor the version a reviewer can hold in their head — fewer layers, less hidden state, no comments that restate the code.
+- **Outcome-Oriented Execution.** Planning a multi-step change, migration, or rewrite with explicit phases. Converge on the target shape, don't let a temporary compatibility state become permanent.
+
+**Verification**
+
+- **Fix Root Causes.** Debugging. Trace a symptom back to the first place the system went wrong and fix it there. A guard is a fix only when the state it handles is legitimate.
+- **Prove It Works.** After a task, before declaring done. Verify against the real artifact, not a proxy or "it compiles."
+
+**Framework**
+
+- **Odoo Reuse and Extend** (**principle-odoo-reuse-extend**). Adding or creating a new Odoo feature, before scaffolding models or views. Spawn an explorer to check whether Community or Enterprise already covers it, and keep custom modules from depending on each other directly.
 
 ## Steps
 
 1. Restate the goal and the check that proves it's done, in one or two sentences. If either is missing, ask once.
 2. Pick the playbook. Say which one and why.
 3. Run **openspec-gate**, unless the change is trivial (say why if skipped).
-4. Follow the playbook. Name the principle that shaped any non-obvious choice.
+4. Follow the playbook. Name the principle that shaped any non-obvious choice, citing only ones whose leaf you actually read this run.
 5. Report: what changed, how it was verified, what's still open.
 
 A question about which skill fits a situation, not a task to do, goes to **nalgene-help** instead.
