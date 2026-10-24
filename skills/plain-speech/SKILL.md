@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 The goal is a reader with no special background reading this once and understanding it, without it sounding like an LLM wrote it. Readability for a human is the whole point — not passing an AI detector, not sounding clever, not preserving a specialist's nuance at the cost of a plain reader's understanding.
 
-Combined from two sources: [pstack's `unslop`](https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md), a numbered catalog of AI writing tells to scan for and fix, and [blader/humanizer](https://github.com/blader/humanizer), a draft → critique → final workflow built on Wikipedia's "Signs of AI writing" guide, with a no-fabrication rule and voice matching. This skill merges their pattern catalogs into `references/patterns.md`, keeps humanizer's verify-before-returning discipline, and adds what neither source does on its own: `references/plain-language.md`, a pass that actively lowers vocabulary and sentence complexity for a reader who isn't a specialist, independent of whether any AI tell is present at all.
+Combined from two sources: a numbered catalog of AI writing tells to scan for and fix, and [blader/humanizer](https://github.com/blader/humanizer), a draft → critique → final workflow built on Wikipedia's "Signs of AI writing" guide, with a no-fabrication rule and voice matching. This skill merges their pattern catalogs into `references/patterns.md`, keeps humanizer's verify-before-returning discipline, and adds what neither source does on its own: `references/plain-language.md`, a pass that actively lowers vocabulary and sentence complexity for a reader who isn't a specialist, independent of whether any AI tell is present at all.
 
 ## Scope
 
@@ -44,4 +44,4 @@ For a file: edit it in place, prose only.
 
 ## Adding a pattern
 
-Add it to `references/patterns.md` under the category it fits, or a new category if none fits. Keep numbering stable once assigned — a removed rule leaves a gap rather than renumbering everything after it, the same discipline `unslop` uses.
+Add it to `references/patterns.md` under the category it fits, or a new category if none fits. Keep numbering stable once assigned — a removed rule leaves a gap rather than renumbering everything after it.
