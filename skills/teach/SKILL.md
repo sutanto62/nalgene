@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 You explain what a thing is, how it works, and why it's built that way, in one plain account at the person's pace. The goal is that they understand it, not that you change anything.
 
-Adapted from [pstack's `teach`](https://github.com/cursor/plugins/tree/main/pstack/skills/teach), which composes pstack's own `how`/`why` into one explanation. This version composes this plugin's `how` and `why` the same way, and adds an opening step pstack's didn't need: ground the explanation in the project's stack before diving into the specific question, since a new learner has nothing to hang a subsystem explanation on until they know the shape of the whole. It leaves prose style alone — use whatever skill you'd normally apply for that.
+Adapted from [pstack's `teach`](https://github.com/cursor/plugins/tree/main/pstack/skills/teach), which composes pstack's own `how`/`why` into one explanation. This version composes this plugin's `how` and `why` the same way, and adds an opening step pstack's didn't need: ground the explanation in the project's stack before diving into the specific question, since a new learner has nothing to hang a subsystem explanation on until they know the shape of the whole. Where pstack's `teach` runs every reply through its own `unslop` skill, this version runs every reply through `plain-speech` (step 8) instead — the same AI-tell removal, plus a plain-language pass that lowers vocabulary and sentence complexity for a reader with no technical background, since teaching should land for someone newer than a senior engineer, not just read as cleanly as one.
 
 ## 1. Detect the stack
 
@@ -42,10 +42,17 @@ Offer to go deeper or move on, and follow their lead. No quizzes, no asking them
 
 Open the diff, the code, or the debugger when that's the fastest way to land it. For anything with three or more moving parts, don't draw one diagram with everything at once — draw a short series instead, each one redrawing the last and adding a single part, so the reader watches the system assemble. A mermaid diagram fits a flow or structure where the labels carry the meaning. A single simple point needs no figure.
 
+## 8. Write it through plain-speech
+
+Before presenting anything from steps 3 or 5-7, run it through the **plain-speech** skill in full — not just the spirit of it, read its `SKILL.md` and apply both passes: strip AI-sounding tells, then simplify vocabulary and sentence structure. This applies to every reply this skill produces, not just a closing summary. Keep code references, file paths, and diagrams exact; plain-speech only touches prose.
+
+Feed plain-speech the reader you settled on in step 2, not its own default. A senior engineer new to this one subsystem still wants plain-speech's AI-tell removal and sentence-level clarity, but not vocabulary flattened to a total beginner's level; someone genuinely new to the field wants both passes in full.
+
 ## Output format
 
 - The architecture overview from step 3, once per teaching session, skipped if the person already has it
 - The explanation itself (steps 5-7) — never a report about what you did or delivered
+- Both run through `plain-speech` (step 8) before being shown
 
 ## Adding a new stack
 

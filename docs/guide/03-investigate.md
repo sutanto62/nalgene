@@ -31,6 +31,8 @@ Both check **openspec-explore** first — what's already documented beats re-der
 
 It opens with a short architecture overview for the project's detected stack (Odoo, Android, iOS, Node.js, Go, and a few others — see `skills/teach/references/stack-overviews.md`) before the specific explanation, so a new learner has a map to place the rest on. If the stack is ambiguous, it asks rather than guessing — a wrong opening frame costs more here than a wrong guess in `how`'s own routing does.
 
+Every reply `teach` produces runs through `plain-speech` before you see it, so it reads plainly and without AI-sounding tells even if you never invoke `plain-speech` yourself — it uses the reader `teach` already identified, not a generic default.
+
 ## Getting outside perspective
 
 **`/tech-advisory`** answers a different question from the other three: not "what does this codebase do", but "what's going on in the wider world around this technology" — recent news, known issues, alternatives, community sentiment.
