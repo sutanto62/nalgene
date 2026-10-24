@@ -6,15 +6,16 @@ State a goal and how you'll know it's done:
 /nalgene-mode add a "resend invite" button to the team settings page. done when a resent invite shows a new expiry and the old link 410s.
 ```
 
-`nalgene-mode` restates the goal and the check, picks one of three playbooks, says why, and runs the rest without you hand-picking skills.
+`nalgene-mode` restates the goal and the check, picks one of four playbooks, says why, and runs the rest without you hand-picking skills.
 
-## The three playbooks
+## The four playbooks
 
 | Signal | Playbook |
 |---|---|
 | Bug, regression, "X doesn't work" | `bug-fix` — reproduce first, root-cause, smallest fix, re-run the repro |
 | New capability, endpoint, screen, behavior | `feature` — gate, build against the approved spec, verify the real path |
 | Restructuring with no behavior change | `refactor` — default to deletion, behavior-preserving at every commit |
+| Stale or orphaned git worktrees, reclaiming disk space | `worktree-cleanup` — audit, pause on uncommitted work, prune the confirmed set, reclaim ecosystem caches |
 
 None fit → `nalgene-mode` says so and proposes the closest one rather than guessing silently.
 
@@ -29,5 +30,9 @@ Once matched, `nalgene-mode` opens a todo list with the playbook's steps before 
 ## Odoo projects
 
 Feature and refactor work on an Odoo project follows `skills/nalgene-mode/references/odoo-feature.md`'s build order (reuse check → scaffold → models → security → views → relations → ...) instead of improvising one. The build order opens with **principle-odoo-reuse-extend**: before anything is scaffolded, an explorer checks whether Community or Enterprise already covers the feature, in full or in part, so a new model or view only gets written once that search comes back empty. Bug fixes use the same reference to guess which build step the bug likely sits in, so the fix starts in the right place instead of a fresh search.
+
+## Worktree cleanup
+
+`worktree-cleanup` is the one playbook that doesn't touch application code, so **openspec-gate** never applies to it — the risk is deleting uncommitted work, not drifting from a spec. It audits every `git worktree list` entry, pauses for a decision on anything with local changes or still in use, and only prunes what you've confirmed. `skills/nalgene-mode/references/worktree-caches.md` lists what else to reclaim per ecosystem — Odoo, Android, iOS, Node.js, and Golang each leave different build caches and simulators/emulators behind that removing a worktree alone doesn't clear.
 
 Next: [Investigate before you touch code](./03-investigate.md).
