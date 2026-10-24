@@ -12,6 +12,7 @@ nalgene still bundles `agents/nalgene-explorer.md` rather than relying on an inl
 |---|---|
 | "spawn a `nalgene-explorer`" | `Task` tool, `subagent_type: "nalgene-explorer"`, `readonly: true` |
 | `openspec`/`git`/`gh` commands | shell execution |
+| "open a todo list" with the playbook's steps | Cursor's native todo list, same as pstack's `poteto-mode` uses |
 
 ## Skills
 
