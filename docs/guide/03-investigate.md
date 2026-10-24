@@ -21,4 +21,14 @@ Both check **openspec-explore** first — what's already documented beats re-der
 
 `how` has an Odoo track: explorers walk Community → Enterprise → Custom in that order, since a later layer can override an earlier one and getting the order wrong gives a wrong answer. `why` doesn't have one yet — its general track covers Odoo questions until a real question needs layer-aware history.
 
+## Teaching a new learner
+
+**`/teach`** composes `how` and `why` into one plain explanation for someone who wants to actually understand something, not change it — "teach me this", "help me understand X".
+
+```text
+/teach how does the invite-expiry job decide which rows to touch, and why does it batch in 50s?
+```
+
+It opens with a short architecture overview for the project's detected stack (Odoo, Android, iOS, Node.js, Go, and a few others — see `skills/teach/references/stack-overviews.md`) before the specific explanation, so a new learner has a map to place the rest on. If the stack is ambiguous, it asks rather than guessing — a wrong opening frame costs more here than a wrong guess in `how`'s own routing does.
+
 Next: [Steer with principle names](./04-steer-with-principles.md).

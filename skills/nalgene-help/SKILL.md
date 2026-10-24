@@ -13,6 +13,7 @@ Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a
 | Nontrivial task, want it routed and gated | `/nalgene-mode` |
 | "How does X work", before changing something | `/how` |
 | "Why does X work this way", design rationale, regressions | `/why` |
+| New to a subsystem, want it taught from the ground up, not just explained | `/teach` |
 | Check what openspec already says, read-only | `/openspec-explore` |
 | Just need a change proposed, validated, or archived | `/openspec-gate` |
 | Steer mid-task toward root-causing, not patching | `/principle-fix-root-causes` |
