@@ -15,6 +15,7 @@ Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a
 | "Why does X work this way", design rationale, regressions | `/why` |
 | New to a subsystem, want it taught from the ground up, not just explained | `/teach` |
 | Outside perspective on a tech/library/pattern/model: news, known issues, alternatives, no recommendation | `/tech-advisory` |
+| Rewrite text so it reads like a human wrote it, in plain words anyone can follow | `/plain-speech` |
 | Check what openspec already says, read-only | `/openspec-explore` |
 | Just need a change proposed, validated, or archived | `/openspec-gate` |
 | Steer mid-task toward root-causing, not patching | `/principle-fix-root-causes` |

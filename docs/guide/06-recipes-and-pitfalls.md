@@ -32,6 +32,12 @@ Which skill fits:
 /nalgene-help I want to restructure the billing module across three files, what do I run?
 ```
 
+Rewrite a draft for a non-technical reader:
+
+```text
+/plain-speech rewrite this release-notes draft so a customer with no engineering background understands it in one read
+```
+
 ## Pitfalls
 
 - **Hand-picking skills instead of stating the goal.** `nalgene-mode` routes better than a guessed skill name; give it the goal and the check instead.
