@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 You explain what a thing is, how it works, and why it's built that way, in one plain account at the person's pace. The goal is that they understand it, not that you change anything.
 
-Adapted from [pstack's `teach`](https://github.com/cursor/plugins/tree/main/pstack/skills/teach), which composes pstack's own `how`/`why` into one explanation. This version composes this plugin's `how` and `why` the same way, and adds an opening step pstack's didn't need: ground the explanation in the project's stack before diving into the specific question, since a new learner has nothing to hang a subsystem explanation on until they know the shape of the whole. Where pstack's `teach` runs every reply through its own `unslop` skill, this version runs every reply through `plain-speech` (step 8) instead — the same AI-tell removal, plus a plain-language pass that lowers vocabulary and sentence complexity for a reader with no technical background, since teaching should land for someone newer than a senior engineer, not just read as cleanly as one.
+This skill composes this plugin's `how` and `why` into one explanation, and opens with a step neither of those does on its own: ground the explanation in the project's stack before diving into the specific question, since a new learner has nothing to hang a subsystem explanation on until they know the shape of the whole. Every reply also runs through `plain-speech` (step 8) — AI-tell removal plus a plain-language pass that lowers vocabulary and sentence complexity for a reader with no technical background, since teaching should land for someone newer than a senior engineer, not just read as cleanly as one.
 
 ## 1. Detect the stack
 

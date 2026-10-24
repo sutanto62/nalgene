@@ -12,8 +12,8 @@ nalgene still bundles `agents/nalgene-explorer.md` rather than relying on an inl
 |---|---|
 | "spawn a `nalgene-explorer`" | `Task` tool, `subagent_type: "nalgene-explorer"`, `readonly: true` |
 | `openspec`/`git`/`gh` commands | shell execution |
-| "open a todo list" with the playbook's steps | Cursor's native todo list, same as pstack's `poteto-mode` uses |
+| "open a todo list" with the playbook's steps | Cursor's native todo list |
 
 ## Skills
 
-Cursor skills are invoked with `/name` the same way as Claude Code. nalgene doesn't currently use any Cursor-only feature (Automations, Bugbot, cloud agents) the way pstack does, so there's nothing host-specific to skip when following a skill's steps here.
+Cursor skills are invoked with `/name` the same way as Claude Code. nalgene doesn't currently use any Cursor-only feature (Automations, Bugbot, cloud agents), so there's nothing host-specific to skip when following a skill's steps here.

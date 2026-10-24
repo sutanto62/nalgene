@@ -4,7 +4,7 @@
 
 Claude Code's `Agent` tool takes `subagent_type`, `description`, `prompt`, `model`, and `isolation` — no call-time `readonly` or `tools` parameter. Tool access is fixed entirely by the invoked agent's static definition file (the `tools:` frontmatter line), not by anything passed at call time.
 
-This is why `agents/nalgene-explorer.md` exists as its own bundled file with `tools: Read, Grep, Glob, Bash, WebFetch, WebSearch` in its frontmatter, instead of `how`/`why` calling a generic agent with a `readonly: true` flag the way pstack — the plugin nalgene is adapted from — does under Cursor. A call-time flag won't restrict tools on this host; it's silently ignored.
+This is why `agents/nalgene-explorer.md` exists as its own bundled file with `tools: Read, Grep, Glob, Bash, WebFetch, WebSearch` in its frontmatter, instead of `how`/`why` calling a generic agent with a call-time `readonly: true` flag the way Cursor's `Task` tool supports. A call-time flag won't restrict tools on this host; it's silently ignored.
 
 Adding a new subagent profile to nalgene (a write-capable implementer, say) means adding a new file under `agents/`, not a new flag at the call site. See [`../harness/cursor.md`](./cursor.md) for the Cursor side of this same split.
 
