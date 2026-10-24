@@ -8,12 +8,14 @@ disable-model-invocation: true
 
 Give a goal in plain words and how you'll know it's done. This skill picks a playbook, drives it step by step, and reports what it skipped and why.
 
-## Routing
+## Playbooks
 
 - Bug, regression, "X doesn't work" → `playbooks/bug-fix.md`.
 - New capability, endpoint, screen, or behavior → `playbooks/feature.md`.
 - Restructuring with no behavior change → `playbooks/refactor.md`.
 - None of these fit → say so, propose the closest playbook, ask before deviating.
+
+Once matched, open a todo list with the playbook's steps before starting work. Mark each in progress when you start it and done when it's done. A step you choose not to do stays on the list with a one-line reason instead of being deleted.
 
 ## Non-negotiables
 

@@ -18,6 +18,8 @@ State a goal and how you'll know it's done:
 
 None fit → `nalgene-mode` says so and proposes the closest one rather than guessing silently.
 
+Once matched, `nalgene-mode` opens a todo list with the playbook's steps before starting — see [`../harness/claude-code.md`](../harness/claude-code.md) or [`../harness/cursor.md`](../harness/cursor.md) for which tool that maps to on your host. A step it skips stays on the list with a one-line reason instead of disappearing.
+
 ## What happens automatically
 
 - **openspec-gate** runs before code starts on anything that touches behavior, a public interface, or more than one module. A one-line guard, a typo, a dependency bump, or a local rename skips it — `nalgene-mode` states why.
