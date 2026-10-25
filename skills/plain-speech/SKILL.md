@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 The goal is a reader with no special background reading this once and understanding it, without it sounding like an LLM wrote it. Readability for a human is the whole point — not passing an AI detector, not sounding clever, not preserving a specialist's nuance at the cost of a plain reader's understanding.
 
-Combined from two sources: a numbered catalog of AI writing tells to scan for and fix, and [blader/humanizer](https://github.com/blader/humanizer), a draft → critique → final workflow built on Wikipedia's "Signs of AI writing" guide, with a no-fabrication rule and voice matching. This skill merges their pattern catalogs into `references/patterns.md`, keeps humanizer's verify-before-returning discipline, and adds what neither source does on its own: `references/plain-language.md`, a pass that actively lowers vocabulary and sentence complexity for a reader who isn't a specialist, independent of whether any AI tell is present at all.
+This skill runs three passes. `references/patterns.md` holds a catalog of AI writing tells to scan for and fix. A draft → critique → final workflow catches what a single pass misses, with a no-fabrication rule and voice matching from a writing sample. `references/plain-language.md` adds a third pass that neither a tell-catalog nor a critique pass covers on its own: actively lowering vocabulary and sentence complexity for a reader who isn't a specialist, independent of whether any AI tell is present at all.
 
 ## Scope
 
@@ -38,7 +38,7 @@ Before returning the rewrite:
 
 ## Output
 
-For a short pasted passage: show the rewrite directly. For anything non-trivial, or on request, show the work the way humanizer does — the first rewrite, a short note on what still read as artificial or dense and why, then the final version — so the person sees what changed and why, not just the end state.
+For a short pasted passage: show the rewrite directly. For anything non-trivial, or on request, show the work — the first rewrite, a short note on what still read as artificial or dense and why, then the final version — so the person sees what changed and why, not just the end state.
 
 For a file: edit it in place, prose only.
 

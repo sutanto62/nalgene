@@ -1,6 +1,6 @@
 # AI writing patterns
 
-A merged, deduplicated catalog of AI writing tells, combining a numbered pattern list with blader/humanizer. Rule numbers are stable ids — a removed rule leaves a gap instead of renumbering everything after it. Scan for these, then rewrite; preserve meaning and the intended tone.
+A merged, deduplicated catalog of AI writing tells. Rule numbers are stable ids — a removed rule leaves a gap instead of renumbering everything after it. Scan for these, then rewrite; preserve meaning and the intended tone.
 
 ## A. Say it, don't stage it
 
