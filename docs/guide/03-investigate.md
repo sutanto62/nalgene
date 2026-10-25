@@ -41,6 +41,6 @@ Every reply `teach` produces runs through `plain-speech` before you see it, so i
 /tech-advisory what's the current landscape around the job queue library this project uses — any known issues, and what are people using instead these days?
 ```
 
-It researches live (always a real web search pass, never answered from memory alone) and never recommends anything — no "you should switch", no ranked winner. It reports what's documented, what's sentiment versus fact, and explicitly flags where this project's own scale or constraints might make something that looks appealing in the abstract not actually apply. Invoke it on its own; it doesn't run as part of `teach` or any other skill, since "understand what exists" and "what else is out there" are different asks with different costs (the second always pays for live research).
+It researches live (always a real web search pass, never answered from memory alone) and never recommends anything — no "you should switch", no ranked winner. It reports what's documented, what's sentiment versus fact, and explicitly flags where this project's own scale or constraints might make something that looks appealing in the abstract not actually apply. Invoke it on its own — it doesn't run as part of `teach`, since "understand what exists" and "what else is out there" are different asks with different costs (the second always pays for live research) — but like `teach`, every reply runs through `plain-speech` before you see it.
 
 Next: [Steer with principle names](./04-steer-with-principles.md).

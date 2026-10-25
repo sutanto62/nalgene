@@ -10,6 +10,8 @@ Give a broader, outside point of view on a piece of technology — recent news, 
 
 This isn't `how` or `why` pointed at the internet instead of the codebase — it researches the outside world, not this repository. It doesn't conclude anything, the same way `why` never concludes a motivation it can't cite: no "you should switch", no "the better choice is", no ranking a winner. Research and report, nothing else. Invoked on its own — `teach` stays a pure explanation of what exists, this is a separate ask about what else is out there.
 
+Every reply also runs through `plain-speech` (step 6), the same pass `teach` uses — AI-tell removal plus a vocabulary and sentence-structure simplification — since a landscape report only does its job if whoever asked can actually read it. Unlike `teach`, this skill has no step that profiles the reader, so plain-speech applies its own default (a reader with no technical background) unless the conversation already names a different audience.
+
 Every investigator and the synthesizer spawn as `subagent_type: nalgene-explorer` (read-only) — same discipline as `how`/`why`. This skill only gathers and reports; it never writes code or files, so a writing-capable agent is never the right choice here.
 
 ## Step 1. Understand the topic
@@ -46,9 +48,15 @@ Spawn one `nalgene-explorer` with `references/synthesizer-prompt.md` filled in, 
 
 Present the synthesizer's output. Light edits for clarity are fine. Don't rewrite the confidence language, and don't quietly turn a "some teams report" into a recommendation — the hedge is the point, same as it is in `why`.
 
+## Step 6. Write it through plain-speech
+
+Before showing the synthesizer's output, run it through the **plain-speech** skill in full — not just the spirit of it, read its `SKILL.md` and apply both passes: strip AI-sounding tells, then simplify vocabulary and sentence structure. Every URL, date, version number, and source name stays exact — plain-speech only touches prose, and its own verify step already checks that nothing factual drifted.
+
+Don't let simplification blur the epistemic tiers `references/epistemics.md` requires. "Documented" still needs to read as more certain than "Reported sentiment" after the rewrite — plain-speech's job is clearer words, not flatter confidence.
+
 ## Output format
 
-The structure in `references/synthesizer-prompt.md`: The Question, What's Established, What's Emerging or Contested, Known Issues, Alternatives Worth Knowing About (if researched), Where This Project's Scale or Constraints Might Not Fit, Sources Consulted, Confidence Summary. Adapt as needed; drop sections with nothing to say.
+The structure in `references/synthesizer-prompt.md`: The Question, What's Established, What's Emerging or Contested, Known Issues, Alternatives Worth Knowing About (if researched), Where This Project's Scale or Constraints Might Not Fit, Sources Consulted, Confidence Summary. Adapt as needed; drop sections with nothing to say. Run through `plain-speech` (step 6) before being shown.
 
 ## Common failure modes to avoid
 
