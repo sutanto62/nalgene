@@ -1,6 +1,6 @@
 # Plain language
 
-Neither `unslop` nor `humanizer` does this pass — both assume a general but literate reader and focus on removing AI-sounding tells. This pass goes further: lower the vocabulary and sentence complexity so someone with no technical background and no prior context can follow it, whether or not any AI tell is present. Target register: a daily newspaper, not a textbook, a contract, or an internal engineering doc.
+The catalog in `patterns.md` assumes a general but literate reader and focuses on removing AI-sounding tells. This pass goes further: lower the vocabulary and sentence complexity so someone with no technical background and no prior context can follow it, whether or not any AI tell is present. Target register: a daily newspaper, not a textbook, a contract, or an internal engineering doc.
 
 ## Sentence structure
 
@@ -12,7 +12,7 @@ Neither `unslop` nor `humanizer` does this pass — both assume a general but li
 ## Vocabulary
 
 - **Common word over rare word, every time.** See `patterns.md` category D for specific swaps — this file covers the general rule, that file the examples.
-- **No unexplained jargon or acronyms.** Define a term in plain words the first time it appears, or replace it with a description of the thing instead of its name. "The ORM" becomes "the tool that turns database rows into objects the code can use" — or is dropped entirely if the reader doesn't need to know it exists.
+- **No unexplained jargon or acronyms.** The first time a term appears, explain it in plain words and put the technical term in parentheses right after: "a tool that turns database rows into objects the code can use (an ORM)." That way the reader has the real name if they run into it again elsewhere — in an error message, a comment, other docs. Drop the parenthetical too, not just the explanation, if the reader never needs the term itself. After that first explanation, every later mention uses the short technical term on its own — don't re-explain it, and don't keep switching back and forth between the plain phrase and the term.
 - **No assumed background.** Don't reference an internal term, a prior decision, or a technical standard without a one-line plain explanation the first time it comes up.
 - **Concrete beats abstract.** A specific example lands faster than an abstract description of the same thing. Give the example.
 - **Real numbers over vague magnitude words.** "Significantly faster" becomes the actual number or percentage, if it's known; if it isn't known, say that instead of implying precision with a vague intensifier.
