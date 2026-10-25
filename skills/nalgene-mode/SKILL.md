@@ -32,6 +32,7 @@ Read the leaf skill in full for any principle you apply. Each entry names when i
 
 - **Minimize Reader Load.** Writing or reviewing a diff. Favor the version a reviewer can hold in their head — fewer layers, less hidden state, no comments that restate the code.
 - **Outcome-Oriented Execution.** Planning a multi-step change, migration, or rewrite with explicit phases. Converge on the target shape, don't let a temporary compatibility state become permanent.
+- **Report, Don't Recommend.** Presenting options, research findings, or a comparison the person will decide on. Describe tradeoffs; don't resolve the decision for them, even with a hedge.
 
 **Verification**
 
