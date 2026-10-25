@@ -1,6 +1,6 @@
 # Alternatives
 
-Only spawned for a comparative question — "what else is out there for X", "how are other teams solving this problem", "what are the alternatives to Y".
+Used only by the `compare-options` playbook — "what else is out there for X", "how are other teams solving this problem", "what are the alternatives to Y".
 
 ## What this angle covers
 
