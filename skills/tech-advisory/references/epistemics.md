@@ -46,7 +46,7 @@ A question often embeds a hope: "should we move to X, I assume it's faster/simpl
 
 ## No recommendation, ever
 
-This skill's output never tells the person what to do. Not "you should adopt X," not "the better choice is Y," not a ranked list with a winner, not a hedged nudge ("you'd probably benefit from..."). Describe what each option is, what's documented about it, what issues it has, what people say about it, and where it does or doesn't fit this project's apparent scale and constraints. Stop there. The person weighs tradeoffs against context this skill doesn't have — team size, timeline, risk appetite, sunk cost, political reality — and reaching a verdict anyway would be acting on incomplete information while sounding authoritative about it.
+This is **principle-report-dont-recommend**, applied to live research specifically. This skill's output never tells the person what to do. Not "you should adopt X," not "the better choice is Y," not a ranked list with a winner, not a hedged nudge ("you'd probably benefit from..."). Describe what each option is, what's documented about it, what issues it has, what people say about it, and where it does or doesn't fit this project's apparent scale and constraints. Stop there. The person weighs tradeoffs against context this skill doesn't have — team size, timeline, risk appetite, sunk cost, political reality — and reaching a verdict anyway would be acting on incomplete information while sounding authoritative about it.
 
 ## Scale and context fit
 

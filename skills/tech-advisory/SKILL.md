@@ -56,7 +56,7 @@ Spawn one `nalgene-explorer` with `references/synthesizer-prompt.md` filled in, 
 
 ## Step 6. Present
 
-Present the synthesizer's output. Light edits for clarity are fine. Don't rewrite the confidence language, and don't quietly turn a "some teams report" into a recommendation — the hedge is the point, same as it is in `why`.
+Present the synthesizer's output per **principle-report-dont-recommend**. Light edits for clarity are fine. Don't rewrite the confidence language, and don't quietly turn a "some teams report" into a recommendation — the hedge is the point, same as it is in `why`.
 
 ## Step 7. Write it through plain-speech
 
@@ -74,7 +74,7 @@ The structure in `references/synthesizer-prompt.md`: The Question, What's Establ
 - **Staleness.** "Recent" expires fast. Date everything; don't let a two-year-old post pass as current news.
 - **Forcing fit.** The most interesting finding is often the one that doesn't apply here — say so explicitly rather than letting an exciting result imply it's actionable for this project.
 - **Collapsing sentiment into fact.** "People are moving to X" is a claim about sentiment, not a technical fact about X. Keep them in separate sections.
-- **Sliding into a recommendation.** Even a hedged one ("you'd probably benefit from...") crosses the line this skill exists not to cross. Describe tradeoffs; don't resolve them for the person.
+- **Sliding into a recommendation.** Even a hedged one ("you'd probably benefit from...") crosses the line this skill exists not to cross — see **principle-report-dont-recommend**. Describe tradeoffs; don't resolve them for the person.
 - **Spawning every angle at once.** A playbook naming more than 3 angles still caps at 3 concurrent investigators — queue the rest, don't spawn them all because they'll "finish eventually anyway."
 
 ## Adding a new angle

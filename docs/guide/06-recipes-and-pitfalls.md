@@ -46,6 +46,7 @@ Rewrite a draft for a non-technical reader:
 - **Asking `why` a "what does this do" question.** That's `how`'s job; `why` assumes the behavior is already known and investigates motivation.
 - **Declaring success without running anything.** `prove-it-works` exists because "should work now" isn't a verification step.
 - **Starting the fix before the repro exists.** A fix with no repro is a guess, even if it looks right.
+- **Softening a recommendation instead of dropping it.** "You'd probably benefit from X" is still a recommendation — `report-dont-recommend` exists because a hedge doesn't neutralize a nudge, it just sounds more careful while making the same push.
 - **Scaffolding a new Odoo model before checking CE/EE.** `odoo-reuse-extend` exists because Community or Enterprise often already has a model, mixin, or view worth extending — check before you duplicate it.
 
 Back to the [guide index](./README.md).
