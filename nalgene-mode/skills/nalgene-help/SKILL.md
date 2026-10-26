@@ -16,6 +16,7 @@ Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a
 | New to a subsystem, want it taught from the ground up, not just explained | `/teach` |
 | Outside perspective on a tech/library/pattern/model: news, known issues, alternatives, no recommendation | `/tech-advisory` |
 | Rewrite text so it reads like a human wrote it, in plain words anyone can follow | `/plain-speech` |
+| Write or review a doc, PR description, or commit message against a layered writing standard | `/technical-writing` |
 | Check what openspec already says, read-only | `/openspec-explore` |
 | Just need a change proposed, validated, or archived | `/openspec-gate` |
 | Scaffold a new skill, validate it against the Agent Skills spec, evaluate it | `/create-a-skill` |
