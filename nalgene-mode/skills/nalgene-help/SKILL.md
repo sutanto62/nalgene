@@ -18,6 +18,7 @@ Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a
 | Rewrite text so it reads like a human wrote it, in plain words anyone can follow | `/plain-speech` |
 | Check what openspec already says, read-only | `/openspec-explore` |
 | Just need a change proposed, validated, or archived | `/openspec-gate` |
+| Scaffold a new skill, validate it against the Agent Skills spec, evaluate it | `/create-a-skill` |
 | Steer mid-task toward root-causing, not patching | `/principle-fix-root-causes` |
 | Steer toward proving a claim instead of asserting it | `/principle-prove-it-works` |
 | Steer toward a smaller, more readable diff | `/principle-minimize-reader-load` |
