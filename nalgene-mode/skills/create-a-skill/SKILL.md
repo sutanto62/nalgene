@@ -1,12 +1,12 @@
 ---
 name: create-a-skill
-description: "Scaffold a new skill's SKILL.md, validate its frontmatter and structure against the Agent Skills spec (agentskills.io), run a lightweight evaluation pass, then commit and open a PR for it. Use whenever asked to create, author, add, or scaffold a skill, write a new SKILL.md, or check an existing one against spec - for '/create-a-skill', 'make a skill for X', 'new skill', or 'does this skill meet spec'."
+description: "Scaffold a new skill's SKILL.md, validate its frontmatter and structure against the Agent Skills spec (agentskills.io), and run a lightweight evaluation pass before handing it off. Use whenever asked to create, author, add, or scaffold a skill, write a new SKILL.md, or check an existing one against spec - for '/create-a-skill', 'make a skill for X', 'new skill', or 'does this skill meet spec'."
 disable-model-invocation: true
 ---
 
 # Create a skill
 
-Scaffolds a skill in this repo's house voice, then validates, lightly evaluates, and opens a PR for it. Modeled on Anthropic's `skill-creator` and Cursor's `create-skill`, scaled down to match how small skills in this repo actually are — most run 10-80 lines.
+Scaffolds a skill in this repo's house voice, then validates and lightly evaluates it. Modeled on Anthropic's `skill-creator` and Cursor's `create-skill`, scaled down to match how small skills in this repo actually are — most run 10-80 lines. Opening a PR isn't this skill's job — nalgene-mode's `authoring-a-skill` playbook calls this skill and then the shared `create-pr` playbook; invoked standalone, this ends at step 6.
 
 ## 1. Capture intent
 
@@ -38,10 +38,6 @@ Structural skill (fixed steps, a checkable output) → run the lightweight loop 
 ## 6. Register discoverability
 
 If the skill is meant for people to find, not just for another skill to call, add one row to `nalgene-mode/skills/nalgene-help/SKILL.md`'s table. If you placed it in `web-mode` or `odoo-mode`, also add it to that plugin's own `SKILL.md` — each carries its own "Sibling skills" table, a second discoverability surface nalgene-help doesn't cover. Skip registration entirely for a skill that only ever gets invoked by another skill.
-
-## 7. Create PR
-
-Run nalgene-mode's **create-pr** playbook to commit, push, and open the PR — don't reimplement those mechanics here. Give it a conventional-commit message (`type(scope): summary` — `feat(<plugin>): add <skill-name> for ...`) and a PR body stating what the skill does, the validation result from step 4, and the eval result from step 5 (or why it was skipped).
 
 ## Why
 
