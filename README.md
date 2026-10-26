@@ -1,33 +1,31 @@
 # nalgene
 
-A minimal, stack-agnostic agent workflow plugin for Cursor and Claude Code: one router, one gate, and a handful of principles — no platform-specific skills yet.
+Agent workflow plugins for Cursor and Claude Code. Each plugin is a standalone directory at the repository root with its own `.cursor-plugin/plugin.json` (and `plugin.json` for Claude Code).
 
-## What's here
+## Plugins
 
-- **`nalgene-mode`** — the router. Give it a goal and a way to check it's done; it picks a playbook (`bug-fix`, `feature`, `refactor`, `worktree-cleanup`), gates non-trivial changes through `openspec-gate`, and reports what it skipped and why. On an Odoo project, the playbooks point at `references/odoo-feature.md` for build order instead of improvising one; `worktree-cleanup` points at `references/worktree-caches.md` for the Odoo/Android/iOS/Node.js/Golang caches and simulators a `git worktree remove` doesn't clear.
-- **`how`** — "how does X work" / architecture walkthroughs. Checks `openspec-explore` first, routes to a general or framework-specific (Odoo) explorer/explainer track, and fans out read-only `nalgene-explorer` subagents for complex questions.
-- **`why`** — "why does X work this way" / design rationale, regressions, and historical motivation. Fixed two-source roster (git + `gh`, and openspec documents), fans out read-only `nalgene-explorer` investigators per source, then a synthesizer produces a confidence-tiered, cited answer. Defers to `how` for "what the code does" instead of re-deriving it. Deliberately scoped to two sources (no MCP discovery) and no Odoo track yet.
-- **`teach`** — "teach me this" / onboarding a new learner. Composes `how` and `why` into one plain explanation, opening with a short architecture overview for the project's detected stack (Odoo, Android, iOS, Node.js, Go, and a few more — see `skills/teach/references/stack-overviews.md`) before the specific question, so there's a map to place the rest on. Every reply runs through `plain-speech` before being shown instead of a separate prose-style mandate.
-- **`tech-advisory`** — outside perspective on a technology, library, pattern, algorithm, or AI model: recent news, known issues, alternatives, community sentiment, via live web research. Routes the ask into one of three playbooks (`landscape`, `known-issue`, `compare-options`, `skills/tech-advisory/playbooks/`), each naming its own research angles in priority order, with investigators capped at 3 concurrent and queued beyond that — the synthesizer always runs last, after every queued angle returns. Same investigator/synthesizer shape as `why` (fans out read-only `nalgene-explorer`s, then a synthesizer), but the epistemics are tuned for the open web instead of git history: confidence tiers run Documented → Corroborated → Reported sentiment → Speculative → Unknown, and the synthesizer never recommends a course of action — it names where this project's own scale or constraints might not fit something and stops there. Standalone; doesn't run as part of `teach`, though it runs every reply through `plain-speech` the same way `teach` does.
-- **`plain-speech`** — rewrite text so anyone, including a non-technical reader, understands it in one read with no AI-sounding tells left in it. Runs a numbered catalog of AI writing tells through a draft → critique → final workflow with a no-fabrication rule, plus a plain-language simplification pass that neither alone covers (`skills/plain-speech/references/plain-language.md`). Invoke it standalone, or get it automatically — both `teach` and `tech-advisory` run every reply through it before showing it.
-- **`openspec-gate`** — drives `openspec`'s propose → validate → implement → archive loop. Called by `nalgene-mode` for any change that touches behavior, an API, or more than one module; invoke directly for anything else.
-- **`openspec-explore`** — read-only: what does openspec already document about this? Used by `how`, or standalone.
-- **`nalgene-help`** — answers "which skill for X" without spending tokens doing work. Type `/nalgene-help <question>`.
-- **`principle-*`** — one-rule skills you invoke by name mid-task to redirect the agent: `fix-root-causes`, `prove-it-works`, `minimize-reader-load`, `outcome-oriented-execution`, `report-dont-recommend`.
-- **`agents/nalgene-explorer`** — the plugin's own read-only, general-purpose subagent, shared by `how` and `why`. Bundled rather than relying on a host's built-in equivalent, so both skills work the same in Cursor and Claude Code.
+| `name` | Plugin | Description |
+|:-------|:-------|:-------------|
+| `nalgene-mode` | [nalgene-mode](nalgene-mode/) | Minimal, stack-agnostic agent workflow: openspec-gated router, `how`/`why`/`teach`/`tech-advisory`, and a handful of no-fluff principles. |
+| `odoo-mode` | [odoo-mode](odoo-mode/) | Odoo agent style layered on `nalgene-mode`: reuse Community/Enterprise before scaffolding anything new, routed through its playbooks. |
+| `web-mode` | [web-mode](web-mode/) | Web/SPA agent style layered on `nalgene-mode`: reuse the app's shared API client and session wiring instead of duplicating it, routed through its playbooks. |
+
+`nalgene-mode` is the stack-agnostic core every other plugin here composes with. A stack- or style-specific layer (Odoo, web, Android, iOS, backend, a personal workflow) ships as its own sibling plugin that routes through `nalgene-mode`'s playbooks and layers its own gate on top — `odoo-mode` and `web-mode` are the first two. See [`nalgene-mode`'s guide, page 2](nalgene-mode/docs/guide/02-nalgene-mode.md#sibling-plugins) for when a new stack warrants a sibling plugin instead of growing `nalgene-mode` itself.
 
 ## Install
 
-**Claude Code:** this repo is its own marketplace (`.claude-plugin/marketplace.json`, one entry pointing at the repo root). In Claude Code:
+**Claude Code:** this repo is its own marketplace (`.claude-plugin/marketplace.json`, one entry per plugin above).
 
 ```text
 /plugin marketplace add sutanto62/nalgene
-/plugin install nalgene@nalgene
+/plugin install nalgene-mode@nalgene
+/plugin install odoo-mode@nalgene
+/plugin install web-mode@nalgene
 ```
 
-(or run the equivalent `claude plugin marketplace add` / `claude plugin install` from the shell).
+(or run the equivalent `claude plugin marketplace add` / `claude plugin install` from the shell). Install `nalgene-mode` alone if you don't need a sibling stack plugin yet; `odoo-mode` and `web-mode` each require `nalgene-mode` to also be installed.
 
-**Cursor:** `/add-plugin` pointing at this repo, or via Customize in the sidebar. Uses `.cursor-plugin/plugin.json`.
+**Cursor:** `/add-plugin` pointing at `nalgene-mode/`, `odoo-mode/`, or `web-mode/` in this repo, or via Customize in the sidebar. The root `.cursor-plugin/marketplace.json` lists all three.
 
 ## Use
 
@@ -35,14 +33,14 @@ A minimal, stack-agnostic agent workflow plugin for Cursor and Claude Code: one 
 /nalgene-mode the export writes duplicate rows when a retry lands mid-run. repro first, then fix and verify.
 ```
 
-State the goal and a way to check it — don't hand-pick skills yourself. `nalgene-mode` routes to the right playbook and calls `openspec-gate` and the principles as the steps need them.
+State the goal and a way to check it — don't hand-pick skills yourself. `nalgene-mode` routes to the right playbook and calls `openspec-gate` and the principles as the steps need them. Working on an Odoo module with `odoo-mode` installed, or a frontend SPA with `web-mode` installed? Use `/odoo-mode` or `/web-mode` instead — each routes through the same playbooks with one extra gate on top.
 
-Mid-task, steer it by naming a principle directly: "apply prove-it-works, show me the real output."
+Mid-task, steer any of the three by naming a principle directly: "apply prove-it-works, show me the real output."
 
 ## Guide
 
-[`docs/guide/`](./docs/guide/README.md) walks through setup, routing, investigation, steering, and the gate with realistic prompts. [`docs/harness/`](./docs/harness/) covers the Claude Code vs. Cursor differences relevant to authoring or editing a skill.
+[`nalgene-mode/docs/guide/`](nalgene-mode/docs/guide/README.md) walks through setup, routing, investigation, steering, and the gate with realistic prompts. [`nalgene-mode/docs/harness/`](nalgene-mode/docs/harness/) covers the Claude Code vs. Cursor differences relevant to authoring or editing a skill. `odoo-mode` and `web-mode` are each small enough to cover in their own README alone ([odoo-mode](odoo-mode/README.md), [web-mode](web-mode/README.md)).
 
-## Status
+## Adding a new plugin
 
-v1: router + openspec gate + 5 principles + `how` + `why` + `teach` + `tech-advisory` + `plain-speech`, deliberately stack-agnostic except for `how`'s Odoo track and `teach`'s stack-overview step (`skills/teach/references/stack-overviews.md`, open-ended the same way `worktree-caches.md` is) (the first framework-specific explorer/explainer pair — others follow the same pattern: `references/explorer-prompt-<name>.md` + `references/explainer-prompt-<name>.md`, plus a routing line in `how`'s SKILL.md). `why` has no Odoo track yet — add a `references/sources/code-archaeology-odoo.md` if a real question ever needs layer-aware git history. `nalgene-mode`'s Odoo build-order support is a single reference (`skills/nalgene-mode/references/odoo-feature.md`, condensed from Odoo's own Server Framework 101 tutorial) that the `bug-fix`/`feature`/`refactor` playbooks point into, not a fourth playbook — framework knowledge, not a different workflow shape. `worktree-cleanup` is the actual fourth playbook, since disk-reclamation is a different workflow shape than a code change; its own per-ecosystem reference (`references/worktree-caches.md`) covers Odoo, Android, iOS, Node.js, and Golang cache and simulator cleanup. `tech-advisory` has its own, smaller playbook set (`landscape`, `known-issue`, `compare-options`) for picking research angles by what's driving the ask, independent of `nalgene-mode`'s own playbooks. Platform-specific *action* skills (Android, iOS, web/Svelte, backend feature-building, beyond exploration and worktree maintenance) are intentionally not in here yet — add them once a real, repeated need shows up.
+Add a new top-level directory with its own `.cursor-plugin/plugin.json`, a Claude Code `plugin.json`, and a `README.md`, then list it in both root marketplace files (`.claude-plugin/marketplace.json`, `.cursor-plugin/marketplace.json`). If it's a stack- or style-specific layer on `nalgene-mode`, model it on `odoo-mode` or `web-mode`: a thin router skill that composes with `nalgene-mode`'s playbooks instead of restating them, plus whatever principle(s) that stack needs.

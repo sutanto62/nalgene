@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "web-mode",
+  "version": "0.1.0",
+  "description": "Web/SPA agent style layered on nalgene-mode: reuse the app's shared API client and session wiring instead of duplicating it, routed through nalgene-mode's playbooks.",
+  "author": {
+    "name": "CSutanto"
+  },
+  "homepage": "https://github.com/sutanto62/nalgene/tree/main/web-mode",
+  "repository": "https://github.com/sutanto62/nalgene",
+  "license": "MIT",
+  "keywords": [
+    "nalgene",
+    "nalgene-mode",
+    "web-mode",
+    "spa",
+    "frontend"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "odoo-mode",
+  "version": "0.1.0",
+  "description": "Odoo agent style layered on nalgene-mode: reuse Community/Enterprise before scaffolding anything new, routed through nalgene-mode's playbooks.",
+  "author": {
+    "name": "CSutanto"
+  },
+  "homepage": "https://github.com/sutanto62/nalgene/tree/main/odoo-mode",
+  "repository": "https://github.com/sutanto62/nalgene",
+  "license": "MIT",
+  "keywords": [
+    "nalgene",
+    "nalgene-mode",
+    "odoo-mode",
+    "odoo"
+  ]
+}

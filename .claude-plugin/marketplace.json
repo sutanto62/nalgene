@@ -6,9 +6,19 @@
   "description": "Minimal, stack-agnostic agent workflow: openspec-gated router, layered how/explore, no-fluff principles.",
   "plugins": [
     {
-      "name": "nalgene",
-      "source": ".",
+      "name": "nalgene-mode",
+      "source": "./nalgene-mode",
       "description": "Minimal, stack-agnostic agent workflow plugin for Cursor and Claude Code."
+    },
+    {
+      "name": "web-mode",
+      "source": "./web-mode",
+      "description": "Web/SPA agent style layered on nalgene-mode: reuse the app's shared API client and session wiring instead of duplicating it, routed through nalgene-mode's playbooks."
+    },
+    {
+      "name": "odoo-mode",
+      "source": "./odoo-mode",
+      "description": "Odoo agent style layered on nalgene-mode: reuse Community/Enterprise before scaffolding anything new, routed through nalgene-mode's playbooks."
     }
   ]
 }
