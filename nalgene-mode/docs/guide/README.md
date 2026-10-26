@@ -37,4 +37,6 @@ Next: [Set up nalgene](./01-setup.md).
 
 ---
 
+Starting a new skill? Run `/create-a-skill` — it scaffolds, validates against the Agent Skills spec, and runs a lightweight evaluation before you touch anything else.
+
 Platform quirks (Claude Code vs. Cursor) live in [`../harness/`](../harness/) — read the one for your host once per session if you're authoring or editing a skill, not just using one.
