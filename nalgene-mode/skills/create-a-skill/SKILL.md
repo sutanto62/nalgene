@@ -41,7 +41,7 @@ If the skill is meant for people to find, not just for another skill to call, ad
 
 ## 7. Create PR
 
-Stage the new and changed files, commit with a conventional-commit message (`type(scope): summary` — `feat(<plugin>): add <skill-name> for ...`), push the branch, then run `gh pr create`. The PR body states what the skill does, the validation result from step 4, and the eval result from step 5 (or why it was skipped). Don't merge it — opening it is the last thing this skill does.
+Run nalgene-mode's **create-pr** playbook to commit, push, and open the PR — don't reimplement those mechanics here. Give it a conventional-commit message (`type(scope): summary` — `feat(<plugin>): add <skill-name> for ...`) and a PR body stating what the skill does, the validation result from step 4, and the eval result from step 5 (or why it was skipped).
 
 ## Why
 
