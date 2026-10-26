@@ -15,6 +15,7 @@ Adding a new subagent profile to nalgene (a write-capable implementer, say) mean
 | "spawn a `nalgene-explorer`" | `Agent` tool, `subagent_type: "nalgene-explorer"` |
 | `openspec` commands (`openspec list`, `openspec new change`, ...) | `Bash` |
 | `git`/`gh` commands in `why`'s code-anchor step | `Bash` |
+| `git`/`gh` commands in **create-pr** | `Bash` |
 | "open a todo list" with the playbook's steps | `TaskCreate`/`TaskUpdate` — one task per playbook step, `in_progress` → `completed`; a skipped step stays `completed` with its reason in the description instead of being deleted |
 
 ## Skills

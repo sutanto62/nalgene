@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Create a skill
 
-Scaffolds a skill in this repo's house voice, then validates and lightly evaluates it. Modeled on Anthropic's `skill-creator` and Cursor's `create-skill`, scaled down to match how small skills in this repo actually are — most run 10-80 lines. Stops after validation; opening a PR is out of scope here.
+Scaffolds a skill in this repo's house voice, then validates and lightly evaluates it. Modeled on Anthropic's `skill-creator` and Cursor's `create-skill`, scaled down to match how small skills in this repo actually are — most run 10-80 lines. Opening a PR isn't this skill's job — nalgene-mode's `authoring-a-skill` playbook calls this skill and then the shared `create-pr` playbook; invoked standalone, this ends at step 6.
 
 ## 1. Capture intent
 
@@ -38,10 +38,6 @@ Structural skill (fixed steps, a checkable output) → run the lightweight loop 
 ## 6. Register discoverability
 
 If the skill is meant for people to find, not just for another skill to call, add one row to `nalgene-mode/skills/nalgene-help/SKILL.md`'s table. If you placed it in `web-mode` or `odoo-mode`, also add it to that plugin's own `SKILL.md` — each carries its own "Sibling skills" table, a second discoverability surface nalgene-help doesn't cover. Skip registration entirely for a skill that only ever gets invoked by another skill.
-
-## 7. Stop before PR
-
-Report what you created, the validation result, and the eval result (or why it was skipped). Don't open a PR from here — that's a separate, explicit step.
 
 ## Why
 
