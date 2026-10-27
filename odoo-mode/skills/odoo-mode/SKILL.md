@@ -47,4 +47,6 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 
 ## Report
 
-Same as the matched `nalgene-mode` playbook's own report line, plus which Community/Enterprise option was found and chosen, even when the answer is "nothing reusable."
+Same as the matched `nalgene-mode` playbook's own report line, plus:
+- Which Community/Enterprise option was found and chosen, even when the answer is "nothing reusable."
+- The name(s) of the Odoo module(s) touched — created or modified (the `__manifest__.py` `name`, or its technical directory name if a `name` hasn't been set yet).
