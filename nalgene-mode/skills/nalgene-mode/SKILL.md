@@ -47,7 +47,7 @@ No **Framework** entries currently — every stack-specific principle discovered
 
 1. Restate the goal and the check that proves it's done, in one or two sentences. If either is missing, ask once.
 2. Pick the playbook. Say which one and why.
-3. Run **openspec-gate**, unless the change is trivial (say why if skipped).
+3. Read `openspec-gate`'s `SKILL.md` in full and follow it, unless the change is trivial (say why if skipped). `disable-model-invocation: true` on `openspec-gate` keeps the `Skill` tool from dispatching to it from inside this run — load it from disk the same way the Principles section does (see `docs/harness/claude-code.md` on Claude Code; Cursor has no such restriction).
 4. Follow the playbook. Name the principle that shaped any non-obvious choice, citing only ones whose leaf you actually read this run.
 5. Report: what changed, how it was verified, what's still open.
 
