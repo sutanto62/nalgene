@@ -19,12 +19,14 @@ Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a
 | Write or review a doc, PR description, or commit message against a layered writing standard | `/technical-writing` |
 | Check what openspec already says, read-only | `/openspec-explore` |
 | Just need a change proposed, validated, or archived | `/openspec-gate` |
+| Verify a SQL/ORM change doesn't regress query cost (EXPLAIN ANALYZE before/after) | `/check-sql-performance` |
 | Scaffold a new skill, validate it against the Agent Skills spec, evaluate it | `/create-a-skill` |
 | Steer mid-task toward root-causing, not patching | `/principle-fix-root-causes` |
 | Steer toward proving a claim instead of asserting it | `/principle-prove-it-works` |
 | Steer toward a smaller, more readable diff | `/principle-minimize-reader-load` |
 | Steer a multi-step migration toward its end state, not a permanent halfway house | `/principle-outcome-oriented-execution` |
 | Steer toward describing tradeoffs instead of picking a winner, even a hedged one | `/principle-report-dont-recommend` |
+| Steer toward measuring query cost instead of asserting it from join-count reasoning | `/principle-measure-query-cost` |
 | Odoo feature: check Community/Enterprise for something to reuse or extend, and keep custom modules from depending on each other | `/odoo-mode` (`odoo-mode` plugin) |
 | Web/SPA feature: reuse the app's API client and session wiring instead of duplicating it | `/web-mode` (`web-mode` plugin) |
 

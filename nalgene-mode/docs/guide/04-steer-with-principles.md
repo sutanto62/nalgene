@@ -9,6 +9,7 @@ Six one-rule skills you invoke by name mid-task, in plain language, to redirect 
 | "apply minimize-reader-load" | the smallest diff a reviewer can hold in their head, no padding |
 | "apply outcome-oriented-execution" | name the target shape of a multi-step change and converge on it, no permanent halfway state |
 | "apply report-dont-recommend" | describe tradeoffs on options or findings; stop before picking a winner, even a hedged one |
+| "apply measure-query-cost" | an EXPLAIN ANALYZE (or ORM query count) before and after a SQL/ORM change, not "fewer joins so it's faster" |
 ```text
 apply prove-it-works before you report this as fixed
 ```

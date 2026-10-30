@@ -6,5 +6,5 @@ Reproduce before you fix. A fix with no repro is a guess.
 2. Find the root cause per **principle-fix-root-causes** — binary-search candidate causes with runtime evidence, don't guess, don't patch where the symptom surfaced.
 3. Decide if the fix needs **openspec-gate**: it does if it changes documented behavior or a public interface. Most bug fixes don't — say so and skip it.
 4. Implement the smallest fix the evidence justifies. No "might help" guards alongside it.
-5. Verify per **principle-prove-it-works**: rerun the original repro, confirm it now passes. "Probably fixed" is not verification.
+5. Verify per **principle-prove-it-works**: rerun the original repro, confirm it now passes. "Probably fixed" is not verification. If the fix touches a SQL transaction (raw SQL, an ORM query with N+1 risk, or a reporting/aggregate view), also run **check-sql-performance** for the before/after query-cost numbers.
 6. Report: what was broken, the root cause, the fix, and the before/after repro output.

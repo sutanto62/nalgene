@@ -27,7 +27,8 @@ Once matched, `nalgene-mode` opens a todo list with the playbook's steps before 
 
 - **openspec-gate** runs before code starts on anything that touches behavior, a public interface, or more than one module. A one-line guard, a typo, a dependency bump, or a local rename skips it — `nalgene-mode` states why.
 - **how** runs first for a nontrivial change or an "are we sure how this works" question, before touching code.
-- Each playbook's steps name the principle that shaped a non-obvious call (root-causing, proving it works, minimizing the diff, converging on a target shape) — see [page 4](./04-steer-with-principles.md).
+- **check-sql-performance** runs wherever a diff touches a SQL transaction — raw SQL, an ORM query with N+1 risk, or a reporting/aggregate view — before the change is marked done.
+- Each playbook's steps name the principle that shaped a non-obvious call (root-causing, proving it works, minimizing the diff, converging on a target shape, measuring query cost) — see [page 4](./04-steer-with-principles.md).
 
 ## Sibling plugins
 
