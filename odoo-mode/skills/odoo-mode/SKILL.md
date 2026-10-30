@@ -16,6 +16,7 @@ Thin router over the `nalgene-mode` plugin's own `nalgene-mode` skill. Shared pr
 |---|---|
 | `odoo-mode` | This router |
 | `principle-odoo-reuse-extend` | The Odoo gate below |
+| `odoo-testing` | The Testing gate below |
 
 ## Shared machinery (do not restate)
 
@@ -35,11 +36,17 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 2. Match a `nalgene-mode` playbook (`feature`, `bug-fix`, `refactor`, `worktree-cleanup`). Copy its steps into the todo list before the Odoo gate below. A skipped step stays with a one-line reason instead of being dropped.
 3. Apply `nalgene-mode`'s own non-negotiables (openspec-gate before code on anything touching behavior or a public interface, **how** before a nontrivial change). Do not re-list them here.
 4. Apply the **Odoo gate** below wherever the playbook's own step would otherwise have you scaffold a new model, view, or wizard from scratch. It only fires when the project is in scope — see Detection.
+5. Apply the **Testing gate** below wherever the playbook's own verification step (`principle-prove-it-works`) would run backend tests. Same scope condition.
 
 ### Odoo gate
 
 - **Reuse and extend.** Apply **principle-odoo-reuse-extend** (leaf, this plugin): before scaffolding, spawn an explorer to check whether Community or Enterprise already covers the feature, in full or in part, and keep custom modules from depending on each other directly.
 - In a matched **Feature** or **Bug fix** playbook, this gate opens the build order: follow `references/odoo-feature.md` instead of improvising one. In a **Refactor** restructuring relations or inheritance, check that reference's steps 5 and 9 before moving anything.
+
+### Testing gate
+
+- **Scoped runs only.** Apply **odoo-testing** (leaf, this plugin): tag the test classes for the module under test with its technical name, then verify with `--test-tags module_name` — never an unscoped `--test-enable` run across every installed module.
+- Full flow (writing tests, install/upgrade order, narrowing to one failure, combining modules): `odoo-testing`'s `playbooks/backend-testing.md`. Copy its steps into the todo list wherever the matched `nalgene-mode` playbook's verification step lands.
 
 ### Detection
 
@@ -50,3 +57,4 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 Same as the matched `nalgene-mode` playbook's own report line, plus:
 - Which Community/Enterprise option was found and chosen, even when the answer is "nothing reusable."
 - The name(s) of the Odoo module(s) touched — created or modified (the `__manifest__.py` `name`, or its technical directory name if a `name` hasn't been set yet).
+- The `--test-tags` value used to verify, and the pass/fail count, whenever backend tests ran.
