@@ -55,6 +55,7 @@ Rewrite a draft for a non-technical reader:
 - **Softening a recommendation instead of dropping it.** "You'd probably benefit from X" is still a recommendation — `report-dont-recommend` exists because a hedge doesn't neutralize a nudge, it just sounds more careful while making the same push.
 - **Scaffolding a new Odoo model before checking CE/EE.** `odoo-mode`'s `odoo-reuse-extend` exists because Community or Enterprise often already has a model, mixin, or view worth extending — check before you duplicate it.
 - **Instantiating another API client config in a feature's data-fetching code.** `web-mode`'s `spa-shared-client` exists because SPAs drift toward doing this once per feature instead of sharing one client, and a backend contract change then has to be chased down in every copy by hand.
+- **Calling a SQL/ORM rewrite faster because it has fewer joins.** `check-sql-performance` and `measure-query-cost` exist because the planner doesn't always agree with that reasoning, and the same blind spot can let a rewrite quietly change an output value along with the plan — only an `EXPLAIN ANALYZE` before/after catches both.
 - **Growing `nalgene-mode`'s own `Framework` section for every new stack.** A stack- or style-specific layer (Odoo, web, Android, iOS, backend, a personal workflow) ships as a sibling plugin that routes through `nalgene-mode`'s playbooks, the way `odoo-mode` and `web-mode` do — not as another entry bolted onto `nalgene-mode` itself.
 
 Back to the [guide index](./README.md).
