@@ -41,7 +41,7 @@ Mid-task, steer it by naming a principle directly: "apply prove-it-works, show m
 
 ## Guide
 
-[`docs/guide/`](./docs/guide/README.md) walks through setup, routing, investigation, steering, and the gate with realistic prompts. [`docs/harness/`](./docs/harness/) covers the Claude Code vs. Cursor differences relevant to authoring or editing a skill.
+[`docs/guide/`](./docs/guide/README.md) walks through setup, routing, investigation, steering, and the gate with realistic prompts. [`docs/harness/`](./docs/harness/) covers the Claude Code vs. Cursor differences relevant to authoring or editing a skill. Extending or updating nalgene itself? [`docs/pstack-reference.md`](./docs/pstack-reference.md) maps nalgene's scaled-down shape against [`pstack`](https://github.com/cursor/plugins/tree/main/pstack), the larger sibling project it's descended from.
 
 ## Status
 
