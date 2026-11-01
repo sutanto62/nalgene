@@ -33,7 +33,7 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 ## Non-negotiables
 
 1. Open a todo list. Item 1: read `nalgene-mode`'s **Principles** section in full. Cite each principle you apply with the concrete choice it changed.
-2. Match a `nalgene-mode` playbook (`feature`, `bug-fix`, `refactor`, `worktree-cleanup`). Copy its steps into the todo list before the Odoo gate below. A skipped step stays with a one-line reason instead of being dropped.
+2. Match a `nalgene-mode` playbook from its own catalog (`nalgene-mode`'s `SKILL.md` — do not hard-code a subset here, it drifts). This includes `playbooks/create-pr.md` for any request to open a PR: that match is mandatory and applies the same way in Odoo work as anywhere else, including mid-session or as a standalone follow-up. For `feature`, `bug-fix`, `refactor`, or `worktree-cleanup`, copy its steps into the todo list before the Odoo gate below. A skipped step stays with a one-line reason instead of being dropped.
 3. Apply `nalgene-mode`'s own non-negotiables (openspec-gate before code on anything touching behavior or a public interface, **how** before a nontrivial change). Do not re-list them here.
 4. Apply the **Odoo gate** below wherever the playbook's own step would otherwise have you scaffold a new model, view, or wizard from scratch. It only fires when the project is in scope — see Detection.
 5. Apply the **Testing gate** below wherever the playbook's own verification step (`principle-prove-it-works`) would run backend tests. Same scope condition.
