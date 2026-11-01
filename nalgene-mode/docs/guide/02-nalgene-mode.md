@@ -16,7 +16,7 @@ State a goal and how you'll know it's done:
 | New capability, endpoint, screen, behavior | `feature` — gate, build against the approved spec, verify the real path |
 | Restructuring with no behavior change | `refactor` — default to deletion, behavior-preserving at every commit |
 | Stale or orphaned git worktrees, reclaiming disk space | `worktree-cleanup` — audit, pause on uncommitted work, prune the confirmed set, reclaim ecosystem caches |
-| Verified work ready to ship, opening a PR | `create-pr` — rebase onto the integration branch, write the PR with `technical-writing` and `plain-speech`, open it ready |
+| Verified work ready to ship, opening a PR | `create-pr` — rebase onto the integration branch, defer to the repo's own `.github/pull_request_template.md` if it has one, otherwise write the PR with `technical-writing` and `plain-speech`, open it ready |
 | Authoring or updating a skill in this plugin or a sibling one | `authoring-a-skill` — call `create-a-skill`, then open the PR per `create-pr` |
 
 None fit → `nalgene-mode` says so and proposes the closest one rather than guessing silently.
