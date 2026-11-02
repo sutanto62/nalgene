@@ -31,7 +31,7 @@ Give the agent a goal and a way to check it, in your own words:
 
 You don't need to name a playbook or list skills. "repro first" and a checkable outcome are all the routing signal `/nalgene-mode` needs.
 
-Running on an Odoo project? `how`'s exploration detects it automatically, no setup needed — see [page 3](./03-investigate.md#odoo-projects). To actually build an Odoo feature, install the sibling [`odoo-mode`](../../../odoo-mode/README.md) plugin and use `/odoo-mode` instead of `/nalgene-mode`. Building a frontend SPA? Install the sibling [`web-mode`](../../../web-mode/README.md) plugin and use `/web-mode` the same way. Both are covered in [page 2](./02-nalgene-mode.md#sibling-plugins).
+Running on an Odoo project? `how`'s exploration detects it automatically, no setup needed — see [page 3](./03-investigate.md#odoo-projects). To actually build an Odoo feature, install the sibling [`odoo-mode`](../../../odoo-mode/README.md) plugin and use `/odoo-mode` instead of `/nalgene-mode`. Building a frontend SPA? Install the sibling [`web-mode`](../../../web-mode/README.md) plugin and use `/web-mode` the same way. Building a Go or Node.js backend service? Install the sibling [`backend-mode`](../../../backend-mode/README.md) plugin and use `/backend-mode` instead. All three are covered in [page 2](./02-nalgene-mode.md#sibling-plugins).
 
 Next: [Set up nalgene](./01-setup.md).
 

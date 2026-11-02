@@ -9,6 +9,7 @@ Agent workflow plugins for Cursor and Claude Code. Each plugin is a standalone d
 | `nalgene-mode` | [nalgene-mode](nalgene-mode/) | Minimal, stack-agnostic agent workflow: openspec-gated router, `how`/`why`/`teach`/`tech-advisory`, and a handful of no-fluff principles. |
 | `odoo-mode` | [odoo-mode](odoo-mode/) | Odoo agent style layered on `nalgene-mode`: reuse Community/Enterprise before scaffolding anything new, routed through its playbooks. |
 | `web-mode` | [web-mode](web-mode/) | Web/SPA agent style layered on `nalgene-mode`: reuse the app's shared API client and session wiring instead of duplicating it, routed through its playbooks. |
+| `backend-mode` | [backend-mode](backend-mode/) | Backend agent style layered on `nalgene-mode`: contract-first (OpenAPI/AsyncAPI), backward-compatible, security- and performance-minded, TDD-friendly, with a build order per stack (Go, Node.js), routed through its playbooks. |
 
 `nalgene-mode` is the stack-agnostic core every other plugin here composes with. A stack- or style-specific layer (Odoo, web, Android, iOS, backend, a personal workflow) ships as its own sibling plugin that routes through `nalgene-mode`'s playbooks and layers its own gate on top — `odoo-mode` and `web-mode` are the first two. See [`nalgene-mode`'s guide, page 2](nalgene-mode/docs/guide/02-nalgene-mode.md#sibling-plugins) for when a new stack warrants a sibling plugin instead of growing `nalgene-mode` itself.
 
@@ -21,11 +22,12 @@ Agent workflow plugins for Cursor and Claude Code. Each plugin is a standalone d
 /plugin install nalgene-mode@nalgene
 /plugin install odoo-mode@nalgene
 /plugin install web-mode@nalgene
+/plugin install backend-mode@nalgene
 ```
 
-(or run the equivalent `claude plugin marketplace add` / `claude plugin install` from the shell). Install `nalgene-mode` alone if you don't need a sibling stack plugin yet; `odoo-mode` and `web-mode` each require `nalgene-mode` to also be installed.
+(or run the equivalent `claude plugin marketplace add` / `claude plugin install` from the shell). Install `nalgene-mode` alone if you don't need a sibling stack plugin yet; `odoo-mode`, `web-mode`, and `backend-mode` each require `nalgene-mode` to also be installed.
 
-**Cursor:** `/add-plugin` pointing at `nalgene-mode/`, `odoo-mode/`, or `web-mode/` in this repo, or via Customize in the sidebar. The root `.cursor-plugin/marketplace.json` lists all three.
+**Cursor:** `/add-plugin` pointing at `nalgene-mode/`, `odoo-mode/`, `web-mode/`, or `backend-mode/` in this repo, or via Customize in the sidebar. The root `.cursor-plugin/marketplace.json` lists all four.
 
 ## Use
 
@@ -33,9 +35,9 @@ Agent workflow plugins for Cursor and Claude Code. Each plugin is a standalone d
 /nalgene-mode the export writes duplicate rows when a retry lands mid-run. repro first, then fix and verify.
 ```
 
-State the goal and a way to check it — don't hand-pick skills yourself. `nalgene-mode` routes to the right playbook and calls `openspec-gate` and the principles as the steps need them. Working on an Odoo module with `odoo-mode` installed, or a frontend SPA with `web-mode` installed? Use `/odoo-mode` or `/web-mode` instead — each routes through the same playbooks with one extra gate on top.
+State the goal and a way to check it — don't hand-pick skills yourself. `nalgene-mode` routes to the right playbook and calls `openspec-gate` and the principles as the steps need them. Working on an Odoo module with `odoo-mode` installed, a frontend SPA with `web-mode` installed, or a Go/Node.js backend service with `backend-mode` installed? Use `/odoo-mode`, `/web-mode`, or `/backend-mode` instead — each routes through the same playbooks with its own extra gate(s) on top.
 
-Mid-task, steer any of the three by naming a principle directly: "apply prove-it-works, show me the real output."
+Mid-task, steer any of these by naming a principle directly: "apply prove-it-works, show me the real output."
 
 ## Guide
 

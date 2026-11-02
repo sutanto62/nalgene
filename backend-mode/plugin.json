@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "backend-mode",
+  "version": "0.1.0",
+  "description": "Backend agent style layered on nalgene-mode: contract-first (OpenAPI/AsyncAPI), backward-compatible, security- and performance-minded, TDD-friendly, with a build order per stack (Go, Node.js), routed through nalgene-mode's playbooks.",
+  "author": {
+    "name": "CSutanto"
+  },
+  "homepage": "https://github.com/sutanto62/nalgene/tree/main/backend-mode",
+  "repository": "https://github.com/sutanto62/nalgene",
+  "license": "MIT",
+  "keywords": [
+    "nalgene",
+    "nalgene-mode",
+    "backend-mode",
+    "backend",
+    "golang",
+    "nodejs",
+    "openapi",
+    "asyncapi"
+  ]
+}
