@@ -25,6 +25,7 @@ Once matched, open a todo list whose first items are the matched playbook's step
 - Nontrivial change, architecture decision, or an "are we sure how this works" question before you touch code → the **how** skill.
 - Any change that touches behavior, a public interface, or more than one module goes through **openspec-gate** before code starts. Trivial fixes (typo, one-line guard, dependency bump, local rename) skip it — state why when skipping.
 - Any change that touches a SQL transaction — raw SQL, a cursor/db `execute`, an ORM query with N+1 risk, or a reporting/aggregate view — goes through **check-sql-performance** before it's marked done. A query that's purely additive against a cold path, or one already measured elsewhere in the same change, skips it — state why when skipping.
+- Any playbook step that edits a file isolates in a worktree first, unless the session is already isolated (a background job, an existing `.claude/worktrees/` checkout) — say which applies before the first edit. **create-pr**'s own Worktree step already covers this for itself; don't isolate twice.
 - The Principles section below grounds every non-obvious call. Name each principle that shaped a decision and the specific choice it changed. Cite only principles whose leaf `SKILL.md` you read this run.
 
 ## Principles

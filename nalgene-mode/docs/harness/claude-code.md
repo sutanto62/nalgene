@@ -17,6 +17,7 @@ Adding a new subagent profile to nalgene (a write-capable implementer, say) mean
 | `git`/`gh` commands in `why`'s code-anchor step | `Bash` |
 | `git`/`gh` commands in **create-pr** | `Bash` |
 | "open a todo list" with the playbook's steps | `TaskCreate`/`TaskUpdate` — one task per playbook step, `in_progress` → `completed`; a skipped step stays `completed` with its reason in the description instead of being deleted |
+| "isolate in a worktree first" (Non-negotiables) | `EnterWorktree` tool. Skip it — and say so — when the session is already isolated: a background job under `.claude/worktrees/`, or `cwd` already there. |
 
 ## Skills
 
