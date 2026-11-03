@@ -13,6 +13,7 @@ nalgene still bundles `agents/nalgene-explorer.md` rather than relying on an inl
 | "spawn a `nalgene-explorer`" | `Task` tool, `subagent_type: "nalgene-explorer"`, `readonly: true` |
 | `openspec`/`git`/`gh` commands | shell execution |
 | "open a todo list" with the playbook's steps | Cursor's native todo list |
+| "isolate in a worktree first" (Non-negotiables) | `git worktree add <path> -b <branch>` via shell — no dedicated worktree tool on this host. For several agents on one repo, a [cloud subagent](https://cursor.com/docs/subagents#cloud-subagents) is the cleaner isolation; ask for one explicitly. |
 
 ## Skills
 
