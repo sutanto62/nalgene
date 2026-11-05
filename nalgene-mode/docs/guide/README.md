@@ -39,4 +39,4 @@ Next: [Set up nalgene](./01-setup.md).
 
 Starting a new skill? Run `/create-a-skill` — it scaffolds, validates against the Agent Skills spec, and runs a lightweight evaluation before you touch anything else. Run `/nalgene-mode` instead if you also want it to open the PR.
 
-Platform quirks (Claude Code vs. Cursor) live in [`../harness/`](../harness/) — read the one for your host once per session if you're authoring or editing a skill, not just using one.
+Platform quirks (Claude Code vs. Cursor) live in [`../harness/`](../harness/) — read the one for your host once per session, whether you're authoring a skill or running one: on Claude Code it's also how any nalgene-family skill (including a sibling plugin's router) knows to reach another skill by reading its file off disk instead of an invalid `Skill`-tool call.
