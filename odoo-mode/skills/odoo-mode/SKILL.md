@@ -10,6 +10,8 @@ Thin router over the `nalgene-mode` plugin's own `nalgene-mode` skill. Shared pr
 
 **Requires** the `nalgene-mode` plugin. Check first: the `nalgene-mode` skill should be in your skill list. Missing → stop and tell the user to install it (`/plugin install nalgene-mode@nalgene` in Claude Code, `/add-plugin nalgene-mode` in Cursor).
 
+Every reference to `nalgene-mode` below — its Principles section, a playbook, `openspec-gate`, `how` — means `Read` that file directly off disk and follow it, not a `Skill`-tool call into `nalgene-mode`. On Claude Code, read `nalgene-mode/docs/harness/claude-code.md` once per session before following any of these references; Cursor has no such restriction.
+
 ## Sibling skills (this plugin)
 
 | Skill | Job |
