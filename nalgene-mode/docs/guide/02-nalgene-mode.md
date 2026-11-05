@@ -6,9 +6,9 @@ State a goal and how you'll know it's done:
 /nalgene-mode add a "resend invite" button to the team settings page. done when a resent invite shows a new expiry and the old link 410s.
 ```
 
-`nalgene-mode` restates the goal and the check, picks one of six playbooks, says why, and runs the rest without you hand-picking skills.
+`nalgene-mode` restates the goal and the check, picks one of seven playbooks, says why, and runs the rest without you hand-picking skills.
 
-## The six playbooks
+## The seven playbooks
 
 | Signal | Playbook |
 |---|---|
@@ -16,6 +16,7 @@ State a goal and how you'll know it's done:
 | New capability, endpoint, screen, behavior | `feature` — gate, build against the approved spec, verify the real path |
 | Restructuring with no behavior change | `refactor` — default to deletion, behavior-preserving at every commit |
 | Stale or orphaned git worktrees, reclaiming disk space | `worktree-cleanup` — audit, pause on uncommitted work, prune the confirmed set, reclaim ecosystem caches |
+| Reviewing a diff or PR for quality | `code-review` — detect the language, open its `references/<language>-code-review-checklist.md`, layer Google eng-practices' process standard on top |
 | Verified work ready to ship, opening a PR | `create-pr` — rebase onto the integration branch, defer to the repo's own `.github/pull_request_template.md` if it has one, otherwise write the PR with `technical-writing` and `plain-speech`, open it ready |
 | Authoring or updating a skill in this plugin or a sibling one | `authoring-a-skill` — call `create-a-skill`, then open the PR per `create-pr` |
 
@@ -38,6 +39,6 @@ Odoo-aware *exploration* is a separate matter from the sibling plugins above, an
 
 ## Worktree cleanup
 
-`worktree-cleanup` is the one playbook that doesn't touch application code, so **openspec-gate** never applies to it — the risk is deleting uncommitted work, not drifting from a spec. It audits every `git worktree list` entry, pauses for a decision on anything with local changes or still in use, and only prunes what you've confirmed. `skills/nalgene-mode/references/worktree-caches.md` lists what else to reclaim per ecosystem — Odoo, Android, iOS, Node.js, and Golang each leave different build caches and simulators/emulators behind that removing a worktree alone doesn't clear.
+`worktree-cleanup` and `code-review` are the two playbooks that don't touch application code, so **openspec-gate** never applies to either — `worktree-cleanup`'s risk is deleting uncommitted work, not drifting from a spec, and `code-review` only reads a diff and reports. `worktree-cleanup` audits every `git worktree list` entry, pauses for a decision on anything with local changes or still in use, and only prunes what you've confirmed. `skills/nalgene-mode/references/worktree-caches.md` lists what else to reclaim per ecosystem — Odoo, Android, iOS, Node.js, and Golang each leave different build caches and simulators/emulators behind that removing a worktree alone doesn't clear.
 
 Next: [Investigate before you touch code](./03-investigate.md).
