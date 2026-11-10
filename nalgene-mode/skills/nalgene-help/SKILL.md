@@ -18,6 +18,7 @@ Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a
 | Rewrite text so it reads like a human wrote it, in plain words anyone can follow | `/plain-speech` |
 | Write or review a doc, PR description, or commit message against a layered writing standard | `/technical-writing` |
 | Check what openspec already says, read-only | `/openspec-explore` |
+| Check a TLA+ model of a stateful flow and draw it as a Mermaid statechart, with the shortest path to each broken rule | `/statechart` |
 | Just need a change proposed, validated, or archived | `/openspec-gate` |
 | Verify a SQL/ORM change doesn't regress query cost (EXPLAIN ANALYZE before/after) | `/check-sql-performance` |
 | Scaffold a new skill, validate it against the Agent Skills spec, evaluate it | `/create-a-skill` |
