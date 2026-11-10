@@ -39,6 +39,7 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 3. Apply `nalgene-mode`'s own non-negotiables (openspec-gate before code on anything touching behavior or a public interface, **how** before a nontrivial change). Do not re-list them here.
 4. Apply the **Odoo gate** below wherever the playbook's own step would otherwise have you scaffold a new model, view, or wizard from scratch. It only fires when the project is in scope — see Detection.
 5. Apply the **Testing gate** below wherever the playbook's own verification step (`principle-prove-it-works`) would run backend tests. Same scope condition.
+6. Apply the **State gate** below whenever the request would insert, rename, or alter any model's state. It runs ahead of non-negotiable 3's `openspec-gate` step — the playbook's own confirmation step decides whether and how that step fires, not the other way round. Same scope condition.
 
 ### Odoo gate
 
@@ -50,6 +51,12 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 - **Scoped runs only.** Apply **odoo-testing** (leaf, this plugin): tag the test classes for the module under test with its technical name, then verify with `--test-tags module_name` — never an unscoped `--test-enable` run across every installed module.
 - Full flow (writing tests, install/upgrade order, narrowing to one failure, combining modules): `odoo-testing`'s `playbooks/backend-testing.md`. Copy its steps into the todo list wherever the matched `nalgene-mode` playbook's verification step lands.
 
+### State gate
+
+- **Map blast radius before proposing.** Before inserting, renaming, or altering any model's state, check the canonical model's state behavior, then the custom model's state behavior, analyze impact, and report it with a statechart before anything reaches openspec.
+- Full procedure: this plugin's own `playbooks/state-change-impact.md`. Copy its steps into the todo list ahead of non-negotiable 3's `openspec-gate` step.
+- This gate ends in a stop-and-ask: don't let the matched playbook or non-negotiable 3 carry the work into `openspec-gate` until the user has confirmed the reported impact.
+
 ### Detection
 
 "Odoo project" means the question names Odoo, or the touched paths look like an Odoo module (`__manifest__.py`, `models/`, `views/*.xml`, `security/ir.model.access.csv`) — same detection the `nalgene-mode` plugin's `how` skill uses for its own Odoo track. Not an Odoo project → this plugin doesn't apply; run `nalgene-mode` directly instead of `/odoo-mode`.
@@ -60,3 +67,4 @@ Same as the matched `nalgene-mode` playbook's own report line, plus:
 - Which Community/Enterprise option was found and chosen, even when the answer is "nothing reusable."
 - The name(s) of the Odoo module(s) touched — created or modified (the `__manifest__.py` `name`, or its technical directory name if a `name` hasn't been set yet).
 - The `--test-tags` value used to verify, and the pass/fail count, whenever backend tests ran.
+- For a state-change request: the blast-radius list (breaks / extend / unaffected-by-design) and whether the user confirmed before openspec started.
