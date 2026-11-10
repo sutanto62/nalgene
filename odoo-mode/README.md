@@ -1,6 +1,6 @@
 # odoo-mode
 
-Odoo agent style layered on [nalgene-mode](../nalgene-mode/). nalgene-mode does the shared work: router, openspec gate, core principles, playbook machinery. This plugin adds the one gate this stack needs — search Community then Enterprise before scaffolding anything new — and the build order for a feature in that shape.
+Odoo agent style layered on [nalgene-mode](../nalgene-mode/). nalgene-mode does the shared work: router, openspec gate, core principles, playbook machinery. This plugin adds the gates this stack needs — search Community then Enterprise before scaffolding anything new, map blast radius before changing a model's state — and the build order for a feature in that shape.
 
 ## Install
 
@@ -29,6 +29,7 @@ This plugin requires `nalgene-mode` to be installed alongside it — its `odoo-m
 - **One extra gate.** Before scaffolding a new model, view, or wizard, spawn an explorer to check whether Community or Enterprise already covers it, in full or in part.
 - **A build order for this shape.** `skills/odoo-mode/references/odoo-feature.md` sequences a new Odoo feature (reuse check → scaffold → models → security → views → relations → ...), opened by the gate above. Bug fixes and refactors read the same reference to locate the likely build step or justify restructuring relations/inheritance.
 - **A scoped test run.** `skills/odoo-testing/playbooks/backend-testing.md` governs backend testing: tag test classes with the module's technical name, then verify with `--test-tags module_name` instead of an unscoped `--test-enable` run across every installed module.
+- **A state-change impact gate.** `skills/odoo-mode/playbooks/state-change-impact.md` governs any insert/rename/alter of a model's state: check the canonical model's state behavior, then the custom model's, analyze impact, report one-liners plus a `nalgene-mode` statechart, and stop for user confirmation before `openspec-gate` starts.
 
 Odoo-aware *exploration* (the Community → Enterprise → Custom track in `nalgene-mode`'s own `how` skill, and the Odoo stack overview in its `teach` skill) stays in `nalgene-mode` — this plugin only adds the action-side gate and build order, the same split `web-mode` uses for the SPA shared-client principle.
 
