@@ -1,22 +1,27 @@
 ---
 name: odoo-testing
-description: "Odoo backend test scoping: tag test classes with the module's technical name and run with --test-tags <module_name> instead of the full suite. Use for '/odoo-testing', writing or running Odoo Python tests, or the verification step of any odoo-mode playbook on an Odoo project."
+description: "Odoo test playbooks for Python backend (`@tagged`/`--test-tags`), JavaScript unit (Hoot `describe`/`test`/`expect`), and integration (HttpCase tours). Use for '/odoo-testing', writing or running any kind of Odoo test, or the verification step of any odoo-mode playbook on an Odoo project."
 disable-model-invocation: true
 ---
 
 # Odoo testing
 
-Scopes Python backend test runs to the module actually under test, per Odoo's own [test-selection mechanism](https://www.odoo.com/documentation/20.0/developer/reference/backend/testing.html#test-selection) — tags decide what executes, not a full-suite run.
+Three playbooks, one per Odoo test kind, each scoping its own run instead of re-executing everything — per Odoo's [testing reference](https://www.odoo.com/documentation/20.0/developer/reference/backend/testing.html) and [frontend unit testing reference](https://www.odoo.com/documentation/20.0/developer/reference/frontend/unit_testing/hoot.html).
 
 **Requires** the `nalgene-mode` plugin, same as `odoo-mode` — this skill assumes `odoo-mode`'s Detection has already confirmed an Odoo project.
 
-## Two rules
+## Pick the playbook
 
-1. **Tag with the module's technical name.** Every test class gets `@tagged('module_name', ...)` in addition to the `standard`/`at_install` tags Odoo adds automatically to `BaseCase` subclasses (`TransactionCase`, `HttpCase`). A bare `unittest.TestCase` gets none of those implicit tags — tag it explicitly or it never runs at all.
-2. **Run with `--test-tags module_name`, never an unscoped run.** `--test-tags` implies `--test-enable` and defaults to `+standard` when not given — so a plain `--test-enable` run, or omitting `--test-tags` entirely, re-executes every installed module's `standard` suite, not just the module you changed. Always scope to the technical name from rule 1.
+| Testing... | Playbook |
+|---|---|
+| Python business logic, models, constraints, access rights | `playbooks/backend-testing.md` |
+| A JS unit (component, service, util function) in isolation, no real server | `playbooks/js-testing.md` |
+| A full click-through flow against a real running server (web client + backend together) | `playbooks/integration-testing.md` |
 
-Full procedure — writing tests, install/upgrade order, narrowing to one failing test, combining modules — lives in `playbooks/backend-testing.md`; copy its steps into the todo list the way any `nalgene-mode` playbook is copied in.
+A single feature usually needs more than one kind — backend tests for the logic, a tour for the flow that exercises it end-to-end. Don't substitute one for the other: Hoot mocks the server, so it never proves a real end-to-end path; a tour is slow and browser-bound, so it's the wrong tool for a pure JS function's logic.
+
+Copy the matching playbook's steps into the todo list the way any `nalgene-mode` playbook is copied in.
 
 ## Why
 
-An untagged or unscoped test run either silently skips the test you just wrote (a plain `unittest.TestCase`, no tags, never selected) or burns time re-running every other installed module's suite on every change. Tagging by module name turns "did my change break anything?" into one scoped command instead of a guess.
+Running the wrong scope wastes the same two ways regardless of test kind: too narrow and the test you just wrote never gets selected (an untagged Python `unittest.TestCase`, a Hoot file left out of `web.assets_unit_tests`, a tour file left out of `web.assets_tests`); too wide and every change re-executes every installed module's suite, or every test in the project, instead of just what you touched. Each playbook exists to keep that scope tight for its own kind of test.
