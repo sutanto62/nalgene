@@ -22,13 +22,13 @@ This plugin requires `nalgene-mode` to be installed alongside it — its `odoo-m
 |---|---|
 | [`/odoo-mode`](./skills/odoo-mode/SKILL.md) | Default entry for nontrivial work on an Odoo module. Routes through `nalgene-mode`'s playbooks with the Odoo gate on top. |
 | [`principle-odoo-reuse-extend`](./skills/principle-odoo-reuse-extend/SKILL.md) | Referenced by `odoo-mode`. Search Community then Enterprise for something to reuse or extend before scaffolding, and keep custom modules from depending on each other. |
-| [`/odoo-testing`](./skills/odoo-testing/SKILL.md) | Referenced by `odoo-mode`. Tag Python test classes with the module's technical name and verify with `--test-tags module_name` instead of an unscoped run. |
+| [`/odoo-testing`](./skills/odoo-testing/SKILL.md) | Referenced by `odoo-mode`, or callable on its own. Three playbooks — Python backend (`--test-tags module_name`), JS unit (Hoot), integration (HttpCase tours) — each scoping its own run instead of an unscoped one. |
 
 ## What this plugin's odoo-mode skill adds over nalgene-mode
 
 - **One extra gate.** Before scaffolding a new model, view, or wizard, spawn an explorer to check whether Community or Enterprise already covers it, in full or in part.
 - **A build order for this shape.** `skills/odoo-mode/references/odoo-feature.md` sequences a new Odoo feature (reuse check → scaffold → models → security → views → relations → ...), opened by the gate above. Bug fixes and refactors read the same reference to locate the likely build step or justify restructuring relations/inheritance.
-- **A scoped test run.** `skills/odoo-testing/playbooks/backend-testing.md` governs backend testing: tag test classes with the module's technical name, then verify with `--test-tags module_name` instead of an unscoped `--test-enable` run across every installed module.
+- **Scoped test runs, one playbook per kind.** `skills/odoo-testing/playbooks/backend-testing.md` (Python: tag test classes with the module's technical name, verify with `--test-tags module_name`), `playbooks/js-testing.md` (Hoot unit tests via `/web/tests`, scoped with `?filter=`/`?tag=`), and `playbooks/integration-testing.md` (HttpCase tours, scoped the same way as backend testing) — none fall back to an unscoped, whole-suite run.
 - **A state-change impact gate.** `skills/odoo-mode/playbooks/state-change-impact.md` governs any insert/rename/alter of a model's state: check the canonical model's state behavior, then the custom model's, analyze impact, report one-liners plus a `nalgene-mode` statechart, and stop for user confirmation before `openspec-gate` starts.
 
 Odoo-aware *exploration* (the Community → Enterprise → Custom track in `nalgene-mode`'s own `how` skill, and the Odoo stack overview in its `teach` skill) stays in `nalgene-mode` — this plugin only adds the action-side gate and build order, the same split `web-mode` uses for the SPA shared-client principle.

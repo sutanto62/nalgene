@@ -38,7 +38,7 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 2. Match a `nalgene-mode` playbook from its own catalog (`nalgene-mode`'s `SKILL.md` — do not hard-code a subset here, it drifts). This includes `playbooks/create-pr.md` for any request to open a PR: that match is mandatory and applies the same way in Odoo work as anywhere else, including mid-session or as a standalone follow-up. For `feature`, `bug-fix`, `refactor`, or `worktree-cleanup`, copy its steps into the todo list before the Odoo gate below. A skipped step stays with a one-line reason instead of being dropped.
 3. Apply `nalgene-mode`'s own non-negotiables (openspec-gate before code on anything touching behavior or a public interface, **how** before a nontrivial change). Do not re-list them here.
 4. Apply the **Odoo gate** below wherever the playbook's own step would otherwise have you scaffold a new model, view, or wizard from scratch. It only fires when the project is in scope — see Detection.
-5. Apply the **Testing gate** below wherever the playbook's own verification step (`principle-prove-it-works`) would run backend tests. Same scope condition.
+5. Apply the **Testing gate** below wherever the playbook's own verification step (`principle-prove-it-works`) would run any kind of Odoo test — Python, JS, or integration. Same scope condition.
 6. Apply the **State gate** below whenever the request would insert, rename, or alter any model's state. It runs ahead of non-negotiable 3's `openspec-gate` step — the playbook's own confirmation step decides whether and how that step fires, not the other way round. Same scope condition.
 
 ### Odoo gate
@@ -48,8 +48,8 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 
 ### Testing gate
 
-- **Scoped runs only.** Apply **odoo-testing** (leaf, this plugin): tag the test classes for the module under test with its technical name, then verify with `--test-tags module_name` — never an unscoped `--test-enable` run across every installed module.
-- Full flow (writing tests, install/upgrade order, narrowing to one failure, combining modules): `odoo-testing`'s `playbooks/backend-testing.md`. Copy its steps into the todo list wherever the matched `nalgene-mode` playbook's verification step lands.
+- **Scoped runs only.** Apply **odoo-testing** (leaf, this plugin) — one playbook per test kind (Python backend, JS unit, integration/tour), each scoping its own run instead of re-executing everything.
+- Pick the matching playbook and copy its steps into the todo list wherever the matched `nalgene-mode` playbook's verification step lands: `odoo-testing`'s own `SKILL.md` carries the dispatch table (`playbooks/backend-testing.md`, `playbooks/js-testing.md`, `playbooks/integration-testing.md`) — don't hard-code a single one here, it drifts.
 
 ### State gate
 
@@ -66,5 +66,5 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 Same as the matched `nalgene-mode` playbook's own report line, plus:
 - Which Community/Enterprise option was found and chosen, even when the answer is "nothing reusable."
 - The name(s) of the Odoo module(s) touched — created or modified (the `__manifest__.py` `name`, or its technical directory name if a `name` hasn't been set yet).
-- The `--test-tags` value used to verify, and the pass/fail count, whenever backend tests ran.
+- Which playbook(s) applied (backend/JS/integration), the exact scoping value used to verify (`--test-tags`, `?filter=`/`?tag=`, or a tour name), and the pass/fail count, whenever tests ran.
 - For a state-change request: the blast-radius list (breaks / extend / unaffected-by-design) and whether the user confirmed before openspec started.

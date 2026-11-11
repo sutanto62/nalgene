@@ -29,6 +29,7 @@ Answer the question. Don't start the work — that's `nalgene-mode`'s job, and a
 | Steer toward describing tradeoffs instead of picking a winner, even a hedged one | `/principle-report-dont-recommend` |
 | Steer toward measuring query cost instead of asserting it from join-count reasoning | `/principle-measure-query-cost` |
 | Odoo feature: check Community/Enterprise for something to reuse or extend, and keep custom modules from depending on each other | `/odoo-mode` (`odoo-mode` plugin) |
+| Write or run an Odoo test (Python backend, JS unit, or integration/tour) scoped to just what changed, not the whole suite | `/odoo-testing` (`odoo-mode` plugin) |
 | Web/SPA feature: reuse the app's API client and session wiring instead of duplicating it | `/web-mode` (`web-mode` plugin) |
 | Go/Node.js backend feature: contract-first (OpenAPI/AsyncAPI), backward compatible, layering matched to the project (not imposed), security- and performance-gated, TDD-shaped testing | `/backend-mode` (`backend-mode` plugin) |
 
