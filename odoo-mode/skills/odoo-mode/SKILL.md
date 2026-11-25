@@ -40,6 +40,7 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 4. Apply the **Odoo gate** below wherever the playbook's own step would otherwise have you scaffold a new model, view, or wizard from scratch. It only fires when the project is in scope — see Detection.
 5. Apply the **Testing gate** below wherever the playbook's own verification step (`principle-prove-it-works`) would run any kind of Odoo test — Python, JS, or integration. Same scope condition.
 6. Apply the **State gate** below whenever the request would insert, rename, or alter any model's state. It runs ahead of non-negotiable 3's `openspec-gate` step — the playbook's own confirmation step decides whether and how that step fires, not the other way round. Same scope condition.
+7. Apply the **Commit gate** below wherever `nalgene-mode`'s `playbooks/commit.md` would otherwise set the commit title, including inside **create-pr**'s own Commits step. Same scope condition.
 
 ### Odoo gate
 
@@ -57,6 +58,12 @@ Read these from the `nalgene-mode` plugin. Do not copy their contents into this 
 - Full procedure: this plugin's own `playbooks/state-change-impact.md`. Copy its steps into the todo list ahead of non-negotiable 3's `openspec-gate` step.
 - This gate ends in a stop-and-ask: don't let the matched playbook or non-negotiable 3 carry the work into `openspec-gate` until the user has confirmed the reported impact.
 
+### Commit gate
+
+- **Odoo subject line.** Apply this plugin's own `playbooks/commit.md` for the commit title: `[TAG] module: short imperative sentence`, per Odoo's own git guidelines — overrides `nalgene-mode`'s Conventional Commits title (`type(scope): subject`) for the title only.
+- **Body stays shared.** The body shape — one-minute briefing, ~40-line budget, `##` headings, one-line bullets — still comes from `nalgene-mode`'s `playbooks/commit.md`; don't restate it here. Layer Odoo's own body rules on top: lead with WHY over WHAT, split a commit that touches more than one module instead of combining them, close with any task/PR/ticket references.
+- Fires on every commit message written in scope, not just the one just before a PR.
+
 ### Detection
 
 "Odoo project" means the question names Odoo, or the touched paths look like an Odoo module (`__manifest__.py`, `models/`, `views/*.xml`, `security/ir.model.access.csv`) — same detection the `nalgene-mode` plugin's `how` skill uses for its own Odoo track. Not an Odoo project → this plugin doesn't apply; run `nalgene-mode` directly instead of `/odoo-mode`.
@@ -68,3 +75,4 @@ Same as the matched `nalgene-mode` playbook's own report line, plus:
 - The name(s) of the Odoo module(s) touched — created or modified (the `__manifest__.py` `name`, or its technical directory name if a `name` hasn't been set yet).
 - Which playbook(s) applied (backend/JS/integration), the exact scoping value used to verify (`--test-tags`, `?filter=`/`?tag=`, or a tour name), and the pass/fail count, whenever tests ran.
 - For a state-change request: the blast-radius list (breaks / extend / unaffected-by-design) and whether the user confirmed before openspec started.
+- The `[TAG] module:` used for each commit made, whenever a commit happened.
