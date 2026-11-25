@@ -1,6 +1,6 @@
 ### Commit message (Odoo)
 
-Odoo's own [git guidelines](https://www.odoo.com/documentation/20.0/contributing/development/git_guidelines.html) for the commit message. Supersedes `nalgene-mode`'s `playbooks/commit.md` on the **title** only — its body shape (one-minute briefing, ~40-line budget, `##` headings, one-line bullets) still applies; don't restate it here.
+Odoo's own git guidelines for the commit message. Supersedes `nalgene-mode`'s `playbooks/commit.md` on the **title** only — its body shape (one-minute briefing, ~40-line budget, `##` headings, one-line bullets) still applies; don't restate it here.
 
 **Title.** `[TAG] module: short imperative sentence`, ideally under 50 characters. Check it reads as a real sentence once completed as "if applied, this commit will `<subject>`" — `[IMP] base: prevent to archive users linked to active partners` passes that test.
 
