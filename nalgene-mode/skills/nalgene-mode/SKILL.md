@@ -16,6 +16,7 @@ Give a goal in plain words and how you'll know it's done. This skill picks a pla
 - Stale or orphaned git worktrees, reclaiming disk space → `playbooks/worktree-cleanup.md`.
 - Reviewing a diff or PR for quality → `playbooks/code-review.md`.
 - A click-through plan a non-developer can run by hand to verify a feature, no code → `playbooks/manual-qa-plan.md`.
+- Writing a commit message, mid-feature or standalone → `playbooks/commit.md`.
 - Verified work ready to ship, opening a PR → `playbooks/create-pr.md`. This match is mandatory, including a bare "open a PR" with no other framing, mid-session, or as a standalone follow-up to a task you were not routing through this skill — never run `gh pr create` or a host PR tool ad hoc.
 - Authoring or updating a skill in this plugin or a sibling one → `playbooks/authoring-a-skill.md`.
 - None of these fit → say so, propose the closest playbook, ask before deviating.
